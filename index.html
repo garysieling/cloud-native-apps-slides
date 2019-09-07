@@ -26,10 +26,78 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
+					<h3>AWS Lambda vs Lambdas</h3>
+				</section>
+
+				<section>
+					<code>
+						(x) => x * x
+					</code>
+				</section>
+
+	
+				<section>
+					<code>
+						(x) => <h3>Hi {x}!</h3>
+					</code>
+				</section>
+
+				<section>
+					<code>
+						(x) => {
+							console.log(x + " was here.");
+
+							return <h3>Hi {x}!</h3>;
+						}
+					</code>
+				</section>
+
+				<section>
+					<h3>Execution Context</h3>
+					<ul>
+						<li>Container (Firecracker?)</li>
+						<li>VPC (cold starts / teardown time)</li>
+						<li>Defined memory/CPU/disk</li>
+						<li>Security rules</li>
+					</ul>
+				</section>
+
+				<section>
+					<code>
+						(s3Event) => {
+							...OCR a document...
+						}
+					</code>
+				</section>
+
+				<section>
+					<h3>
+						Software architect can use future costs
+					</h3>
+					<ul>
+						<li>Now: Story points (time + risk)</li>
+						<li>Future: Operational cost (NPV / shape)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Power dynamics between you and the provider</h3>
+					<ul>
+						<li>Cost per time, memory, CPU, device (GPU)</li>
+						<li>In vs. out of network - Transfer pricing</li>
+						<li>Free vs. non-free services (ECS vs EC2)</li>
+						<li>I.e. Free services - Jenkins + Cloudformation?</li>
+					</ul>
+				</section>
+
+				<section>
 					<h3>
 						Cloud-Native Attributes
 					</h3>
 					<ul>
+						<li>
+							Manage your own datacenter
+						</li>
 						<li>
 							Full stack - from virtualized hardware to SaaS
 						</li>
@@ -61,18 +129,18 @@
 					<ul>
 						<li>We're all DevOps</li>
 						<li>Forced awareness of security</li>
-						<li>AWS is teaching DevOps (canary / blue green in SAM)</li>
-						<li>Deep product knowledge is less valuable</li>
+						<li>AWS forces you to learn DevOps (canary / blue green in SAM)</li>
+						<li>Deep product knowledge is less valuable (e.g. Aurora Serverless & connection pooling)</li>
 					</ul>
 				</section>
-			
+
 				<section>
-					<h3>
-						Software architect can use future costs
-					</h3>
+					<h3>From Software Engineer to DevOps</h3>
 					<ul>
-						<li>Now: Story points (time + risk)</li>
-						<li>Future: Operational cost (NPV / shape)</li>
+						<li>Learn Cloudformation and script everything</li>
+						<li>Take advantage of managed services (Aurora, Elasticsearch)</li>
+						<li>Gives you HA, Backups, Patching, Virus scanning</li>
+						<li>Take advantage of Cloudformation template apps - E.g. WAF Security Automations</li>
 					</ul>
 				</section>
 
@@ -131,6 +199,8 @@
 					<ul>
 						<li>APM tools</li>
 						<li>Debugging remote execution</li>
+						<li>Learning IAM</li>
+						<li>Learning how datacenters work (networks, firewalls)</li>
 					</ul>
 				</section>
 				<section>
@@ -169,14 +239,14 @@
 					</ul>
 				</section>
 
-                                <section>
-                                        <h3>The sky</h3>
-          				<ul>
+				<section>
+					<h3>The sky</h3>
+					<ul>
 						<li>Log Sensor data</li>
 						<li>Ground station</li> 
 						<li>Receive commands</li>
 					</ul>
-                                </section>
+				</section>
 
 				<section>
 					<h3>The data center</h3>
