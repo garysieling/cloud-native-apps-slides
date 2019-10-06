@@ -25,6 +25,515 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+					section>
+					<h2>Cloud Native Mapping Apps</h2> 
+					<h3>How Satellite Imagery Gets From the Sky to Your Phone</h3>
+				</section>
+
+				<section>
+					<p><img src="images/e84a.png" /></p>
+					<p><img src="images/e84b.png" /></p>
+				</section>
+
+				<section>
+					<img src="images/googlemaps.png" />
+				</section>
+				
+				<section>
+					<img src="images/landsat-illustration.jpg" />
+				</section>
+
+				<section>
+					<h3>Drone Path</h3>
+					<img src="images/drone_path.jpeg" />
+				</section>
+	
+				<section>
+					<h3>Historic Aerial Footage</h3>
+					<img src="images/historical_footage.gif" >
+				</section>
+
+				<section>
+					<h1>DigitalGlobe</h1>
+					<ul>
+						<!--<li><a href="http://blog.digitalglobe.com/industry/sending-data-from-space-to-amazon-s3-in-less-than-a-minute/">1-60 minutes</a></li>-->
+						<li>80 TB/day</li>
+						<li>100 PB Stored</li>
+						<li>40% cache hit rate</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="images/aws-diagram.png " />
+				</section>
+
+				<!-- section>
+					<h1>AWS Groundstation</h1>
+					<img src="images/groundstation.png" />
+				</section -->
+
+				<section>
+					<h1>AWS Groundstation</h1>
+					<img src="images/groundstation-disaster.png" />
+				</section>
+
+				<section>
+					<h3>Processing Pipeline</h3>
+					<ul>
+						<li>JavaScript - Glue code</li>
+						<li>Science code (Docker, Python, ...)</li>
+						<li>Web UIs for monitoring</li>	
+					</ul>
+				</section>
+				
+				<section>
+					<h1>Science Code</h1>
+				</section>
+
+				<section>
+					<h3>Projection</h3>
+					<img src="images/projection2.png" />
+				</section>
+
+				<section>
+					<h3>Ground Control Point</h3>
+					<img src="images/ground_control_point.jpg" />
+				</section>
+
+				<section>
+					<h3>Lenses</h3>
+					<img src="images/lenses.png" />
+				</section>
+				
+				<section>
+					<h3>Product Creation</h3>
+				</section>
+
+				<section>
+					<h3>Vegetation</h3>
+					<img src="images/vegetation.png" />
+				</section>
+
+				<section>
+					<h3>Collections</h3>
+					<img src="images/earthdatasearch.png" />
+				</section>
+
+				<section>
+					<img src="images/landsat-s3.png" />
+				</section>
+
+				<section>
+					<h3>Map Tiles</h3>
+					<img src="images/geotiffjs-tile.png" />
+				</section>
+
+				<section>
+					<h3>Geotiff.js - Tile</h3>
+					<img src="images/geotiffjs-1tif.png" />
+				</section>
+
+				<section>
+					<h3>Web UI Backend - Tiles</h3>
+					<ul>
+						<li>
+							Hosted - Mapbox, OpenStreetMap
+						</li>
+						<li>
+							Folder structure: zoom + location
+						</li>
+						<li>
+							S3 - byte ranging 
+						</li>
+					</ul>
+				</section>
+
+				<!--section>
+					<h3>Geotiff.js - Browser</h3>
+					<img src="images/geotiffjs-browser.png" />
+				</section-->
+
+				<section>
+					<h3>Gatsby + JAMstack</h3>
+				</section>
+
+				<section>
+					<h3>Forest Fire</h3>
+					<img src="images/forest_fire.png" />
+				</section>
+
+				<section>
+					<h1>Why Gatsby</h1>
+					<ul>
+						<li>Easy styling</li>
+						<li>Makes basic page routing a breeze to set up</li>
+						<li>Avoid editing webpack files</li>
+						<li>Production quality javascript builds</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>UI + Backend Architecture</h1>
+					<ul>
+						<li>Gatsby - Web UIs hosted on S3 + Cloudfront</li>
+						<li>Leaflet.js</li>
+						<li>Microservices</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Backend - Javascript lambdas</h3>
+					<ul>
+						<li>Cost control</li>
+						<li>Fast startup time</li>
+						<li>Microservices</li>
+					</ul>
+				</section>	
+
+				<section>
+					<h3>Build your own map UI</h3>
+				</section>				
+
+				<section>
+					<h3>Libraries</h3>
+					<pre>
+						<code data-trim data-noescape>		
+								yarn add gatsby-plugin-react-leaflet \
+										 react-leaflet \
+										 leaflet
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>gatsby-config.js</h3>
+					<pre>
+						<code data-trim data-noescape>		
+							plugins: [
+							  {
+							    resolve: 'gatsby-plugin-react-leaflet',
+							    options: {
+							      linkStyles: true 
+							    }
+							  }
+							]
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Leaflet.js</h3>
+					<pre>
+						<code data-trim data-noescape>								
+							const position = [39.9526, -75.1652 ];
+
+							const Map = () => 
+							  &lt;LeafletMap center={position} zoom={11}>
+							    &lt;TileLayer
+							      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+							      url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
+							    />
+							    &lt;Marker position={position}>
+							      &lt;Popup>
+							        A &lt;b>popup&lt;/b>.
+							      &lt;/Popup>
+							    &lt;/Marker>
+							  &lt;/LeafletMap>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<img src="images/leaflet-philly.png" />
+				</section>
+
+
+				<!-- section>
+					<h3>Geotiff.js - Network</h3>
+					<img src="images/geotiffjs-networkrequests.png" />
+				</section -->
+
+				<!-- section>
+					<h3>Geotiff.js - Tile</h3>
+					<img src="images/geotiffjs-canvas2.png" />
+				</section -->
+
+				<!--section>
+					<h3>Use cases</h3>
+						<li>Natural disasters - hurricanes, forest fires</li>
+						<li>Directions - heavier use in cities, holidays</li>
+						<li>Science research - mapping edges of ice, sahara, etc</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<img src="images/cubesatdata2.png" />
+				</section -->
+
+				<!--section>
+					TODO - make an visualization of the flight of an image
+				</section -->
+
+				<!-- section>
+					<img src="images/cubesat.jpg" />
+				</section -->
+
+				<!--section>
+					<h1>Ground station</h1>
+					<ul>
+						<li>AWS?</li>
+						<li>Proprietary thing</li>
+						<li>Data center?</li>
+					</ul>
+				</section-->
+
+				<!--section>
+					<h1>Container</h1>
+					<ul>
+						<li>Satellite (Cubesat, Landsat, etc)</li>
+						<li>Plane</li>
+						<li>Drone</li>
+						<li>Kite</li>
+						<li>Hot air balloon?</li>
+					</ul>
+				</section-->
+
+				<!--section>
+					<img src="images/polar-visual.png" />
+					<a href="https://www.polarview.aq/arctic">https://www.polarview.aq/arctic</a>
+				</section>
+				
+				<section>
+					<img src="images/polar-visual-sizes.png" />
+					<a href="https://www.polarview.aq/arctic">https://www.polarview.aq/arctic</a>
+				</section>
+
+				<section>
+					<img src="images/polar-visual-time.png" />
+					<a href="https://www.polarview.aq/arctic">https://www.polarview.aq/arctic</a>
+				</section>
+				
+				<section>
+					<img src="images/polar-visual-sar.png" />
+					<a href="https://www.polarview.aq/arctic">https://www.polarview.aq/arctic</a>
+				</section-->
+
+				<!-- section>
+					<h3>Disaster stuff?</h3>
+
+					TODO - screenshots
+				</section -->
+
+				<!--section>
+					<h1>OpenDroneMap</h1>
+
+					TODO - screenshots
+				</section -->
+
+				<!--section>
+					<h3>Device features</h3>
+					<ul>
+						<li>Drones - airspace restrictions, pathing</li>
+						<li>Drones - altitude vs. resolution</li>
+						<li>Satellites - orientation</li>
+					</ul>
+				</section -->
+	
+				<!-- section>
+					<h1>Remote Sensor(s)</h1>
+					<ul>
+						<li>Camera</li>
+						<li>SAR</li>
+						<li>Timestamp</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<img src="images/Active-Satellite-Flat-Surface.png " />
+					https://gisgeography.com/synthetic-aperture-radar-examples/
+				</section>
+
+				<section>
+					<img src="images/Active-Satellite-Rough-Surface.png " />
+					https://gisgeography.com/synthetic-aperture-radar-examples/
+				</section>
+
+				<section>
+					<img src="images/Active-Satellite-Double-Bounce.png " />
+					https://gisgeography.com/synthetic-aperture-radar-examples/
+				</section>
+
+				<section>
+					<img src="images/Radarsat2-Example.png " />
+					https://gisgeography.com/synthetic-aperture-radar-examples/
+				</section -->
+
+				<!--section>
+					<h1>Remote Sensing</h1>
+					TODO: image of something from ARSET (water, foliage, etc)
+				</section -->
+
+				<!-- section>
+					<h3>Images - Notes</h3>
+					<ul>
+						<li>Can be outside visible spectrum</li>
+						<li>SAR - bounces, so confused by buildings, but can see through clouds</li>
+						<li>Shutter in device can lead to small gaps between images</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h1>Raw file storage (L0)</h1>
+					<ul>
+						<li>Security</li>
+						<li>Proprietary format?</li>
+						<li>GDAL</li>
+						<li>Cumulus / Dashboard - UI for monitoring copies</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h1>Post-processing</h1>
+				</section>
+	
+				<section>
+					<img src="images/cumulus-dashboard1.png" />
+				</section>
+
+				<section>
+					<img src="images/cumulus-dashboard2.png" />
+				</section -->
+
+				<!--section>
+					<h1>Geo-referencing</h1>
+					<ul>
+						<li>JavaScript is glue here</li>
+						<li>TODO - is that the right term?</li>
+						<li>Choose coordinate system (WGS...)</li>
+						<li>Something on the ground?</li>
+						<li>Location of satellite (by timestamp)</li>
+						<li>Mathy code- in docker</li>
+						<li>ECS?</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h1>Regulatory</h1>
+					<ul>
+						<li>Resolution - in general</li>
+						<li>Resolution over hotspots (Israel, protected sites)</li>
+						<li>Who can download the data?</li>
+						<li>Varies by country where provider is located</li>
+						<li>GDPR</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h1>OpenDroneMap here?</h1>
+
+					TODO show a QR code visual?
+				</section -->
+
+				<!-- section>
+					<h3>Photogrammetry</h3>
+					<ul>
+						<li>Lens distortion</li>
+						<li>SIFT (patented?)</li>
+						<li>Line up using points from SIFT</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h3>3D Output</h3>
+					<ul>
+						<li>Same object from above (different spots) - TODO vocab term here</li>
+						<li>Point cloud</li>
+						<li>To mesh</li>
+						<li>Overlay images on mesh</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h1>3D Images</h1>
+
+					TODO - opendronemap here
+				</section -->
+
+				<!-- section>
+					<h3>Stitching images?</h3>
+					<ul>
+						<li>These are very large files</li>
+						<li>COGS - geotiff.js</li>
+						<li>ECS?</li>
+						<li>S3?</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h3>Tiles</h3>
+					<ul>
+						<li>rdnt.io / marblecutter</li>
+						<li>One set per zoom level</li>
+						<li>AWS Lambda</li>
+						<li>S3</li>
+					</ul>
+				</section-->
+
+				
+				<!-- section>
+					<h3>Machine Learning</h3>
+					<ul>
+						<li>Detect buildings (find population centers)</li>
+						<li>Cloudy or not cloudy?</li>
+						<li>Change detection (e.g. before/after earthquake)</li>
+					</ul>
+				</section -->
+
+				<!-- section>
+					<h1>Building Detection</h1>
+
+					TODO - is that gif on the E84 blog runnable?
+				</section -->
+
+				<!--section>
+					<h3>Notebooks</h3>
+					<ul> 
+							https://observablehq.com/@palewire/regional-maps-of-california-buildings-in-fire-hazard-zones
+						
+						<li>ObservableHQ</li>
+					</ul>
+				</section-->
+
+				<!-- section>
+					<img src="images/observablehq.png" />
+				</section -->
+
+				<section>
+					<h3>Gatsby - Lessons learned</h3>
+					<ul>
+						<li>Occasionally some hiccups from being on the bleeding edge/upgrading fast</li>
+						<li>Defaults prevent engineers from arguing - but with escape hatches</li>
+						<li>Hosting on S3- minor hiccups with JSON files</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>JAMstack - Lessons learned</h3>
+					<ul>
+						<li>Can switch API backends</li>
+						<li>Less moving parts to go down</li>
+						<li>Smaller security footprint</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>References</h3>
+					<ul>
+						<li>https://blog.dronedeploy.com/case-study-830cfc23db55#.e0xl69177</li>
+						<li>http://blog.digitalglobe.com/industry/sending-data-from-space-to-amazon-s3-in-less-than-a-minute/</li>
+					</ul>
+				</section>
+				
 				<section>
 					<h3>AWS Lambda vs Lambdas</h3>
 				</section>
