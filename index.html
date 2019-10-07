@@ -49,12 +49,14 @@
 				</section>
 
 				<section>
-					<code data-trim data-noescape>
-						docker run
-							--memory=2g
-							--cpus=1.5
-							...my container...
-					</code>
+					<pre>
+						<code data-trim data-noescape>
+							docker run
+								--memory=2g
+								--cpus=1.5
+								...my container...
+						</code>
+					</pre>
 				</section>
 			
 				<section>
@@ -76,35 +78,31 @@
 				</section>
 
 				<section>
-					<code data-trim data-noescape>
-						(x) => x * x
-					</code>
+					<pre>
+						<code data-trim data-noescape>
+							(x) => x * x
+						</code>
+					</pre>
 				</section>
-
 	
 				<section>
-					<code data-trim data-noescape>
-						(x) => <h3>Hi {x}!</h3>
-					</code>
+					<pre>
+						<code data-trim data-noescape>
+							(request) => &lt;h3>Hi {request.query.name}!&lt;/h3>
+						</code>
+					</pre>
 				</section>
 
 				<section>
-					<code data-trim data-noescape>
-						(x) => {
-							console.log(x + " was here.");
+					<pre>
+						<code data-trim data-noescape>
+							(request) => {
+								console.log(request.query.name + " was here.");
 
-							return <h3>Hi {x}!</h3>;
-						}
-					</code>
-				</section>
-
-				<section>
-					<code data-trim data-noescape>
-						docker run
-							--memory=2g
-							--cpus=1.5
-							...my container...
-					</code>
+								return &lt;h3>Hi {x}!&lt;h3>;
+							}
+						</code>
+					</pre>
 				</section>
 
 				<section>
@@ -118,22 +116,27 @@
 				</section>
 
 				<section>
-					<code data-trim data-noescape>
-						(s3Event) => {
-							...OCR a document...
-						}
-					</code>
+					<pre>
+						<code data-trim data-noescape>
+							docker run
+								--memory=2g
+								--cpus=1.5
+								...my container...
+						</code>
+					</pre>
 				</section>
+
+
+				<!--section>
+					<pre>
+						<code data-trim data-noescape>
+							(s3Event) => {
+								...OCR a document...
+							}
+						</code>
+					</pre>
+				</section-->>
 					
-				<section>
-					<h3>
-						Software architect can use future costs
-					</h3>
-					<ul>
-						<li>Now: Story points (time + risk)</li>
-						<li>Future: Operational cost (NPV / cost shape)</li>
-					</ul>
-				</section>
 
 				<section>
 					<h3>Power dynamics between you and the provider</h3>
@@ -142,6 +145,17 @@
 						<li>In vs. out of network - Transfer pricing</li>
 						<li>Free vs. non-free services (ECS vs EC2)</li>
 						<li>I.e. Free services - Jenkins + Cloudformation?</li>
+					</ul>
+				</section>
+	
+
+				<section>
+					<h3>
+						Software architect can use future costs
+					</h3>
+					<ul>
+						<li>Now: Story points (time + risk)</li>
+						<li>Future: Operational cost (NPV / cost shape)</li>
 					</ul>
 				</section>
 
