@@ -26,40 +26,58 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h2>Cloud Native Apps</h2> 
+					<!--h2>Cloud Native Apps</h2--> 
+					<h2>Functional programming & AWS lambda</h2>
 				</section>
 
 				<section>
 					<p><img src="images/e84a.png" /></p>
 					<p><img src="images/e84b.png" /></p>
 				</section>
-
+				
 				<section>
-					<img src="images/what-are-clouds-meme.jpg" />
+					TODO: a story
 				</section>
 
 				<section>
-					<h3>Unbundled pricing</h3>
+					<h3>"Cloud Native"</h3>
+				</section>
+
+				<section>
+					<h3>Development paradigms</h3>
 					<ul>
-						<li>CPU</li>
-						<li>Memory</li>
-						<li>Disk</li>
-						<li>Network</li>
+						<li>Desktop</li>
+						<li>Mobile</li>
+						<li>IOT</li>
 					</ul>
 				</section>
 
 				<section>
-					<pre>
-						<code data-trim data-noescape>
-							docker run
-								--memory=2g
-								--cpus=1.5
-								...my container...
-						</code>
-					</pre>
+					<h3>Bring your own vs. Managed</h3>
+					<ul>
+						<li>Functions</li>
+						<li>Scaling</li>
+						<li>Runtime</li>
+						<li>OS</li>
+						<li>Virtualization</li>
+						<li>Hardware</li>
+					</ul>
 				</section>
-			
+
 				<section>
+					<h3>Example Architecture</h3>
+					<ul>
+						<li>Microservices (Lambda + API Gateway)</li>
+						<li>A private link to a customer data center</li>
+						<li>AWS handles database backups</li>
+					</ul>
+				</section>
+	
+				<section>
+					<img src="images/what-are-clouds-meme.jpg" />
+				</section>
+
+				<!--section>
 					<h3>Virtualized Datacenter</h3>
 					<ul>
 						<li>Network interfaces (ENI)</li>
@@ -67,14 +85,64 @@
 						<li>Switches (VPC peering, PrivateLink)</li>
 						<li>Firewalls (WAF)</li>						
 					</ul>
-				</section>
+				</section-->
 
-				<section>
+				<!--section>
 					<img src="images/aws-user-evolution.png" />
-				</section>
+				</section-->
 
 				<section>
 					<h3>AWS Lambda vs Lambdas</h3>
+				</section>
+
+				<section>
+					<h3>Functional programming</h3>
+					<blockquote cite="https://en.wikipedia.org/wiki/Functional_programming">
+						A programming paradigm that treats computation as the evaluation of 
+						mathematical functions and avoids changing state and mutable data. 
+						
+						The output value of a function depends only on the arguments passed
+						to a function, so calling a function twice with the same arguments produces
+						the same result each time...
+					</blockquote>
+				</section>
+
+				<section>
+					<h3>index.js</h3>
+					<pre>
+						<code data-trim data-noescape>
+								const main = (event) => ...
+						</code>
+					</pre>
+				</section>
+	
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							docker run
+								--memory=2g
+								--cpus=1.5
+								node
+								index.js
+						</code>
+					</pre>
+				</section>
+			
+				<section>
+					TODO: example lambda
+				</section>
+
+				<section>
+					TODO: example Cloudformation?
+					Does React count as functional programming?
+					Does cloudformation count as a function?
+					
+				</section>
+
+				<section>
+					Idempotency - 
+						- must simluate the provider to write tests
+						- TIMINGs are a huge issue with this
 				</section>
 
 				<section>
@@ -108,10 +176,10 @@
 				<section>
 					<h3>Execution Context</h3>
 					<ul>
-						<li>Container (Firecracker?)</li>
-						<li>VPC (cold starts / teardown time)</li>
+						<li>Container</li>
+						<li>ENI</li>
 						<li>Defined memory/CPU/disk</li>
-						<li>Security rules</li>
+						<li>Security groups</li>
 					</ul>
 				</section>
 
@@ -121,22 +189,21 @@
 							docker run
 								--memory=2g
 								--cpus=1.5
-								...my container...
+								node
+								index.js
 						</code>
 					</pre>
 				</section>
 
-
-				<!--section>
-					<pre>
-						<code data-trim data-noescape>
-							(s3Event) => {
-								...OCR a document...
-							}
-						</code>
-					</pre>
-				</section-->>
-					
+				<section>
+					<h3>
+						Software architect can use future costs
+					</h3>
+					<ul>
+						<li>Now: Story points (time + risk)</li>
+						<li>Future: Operational cost (NPV / cost shape)</li>
+					</ul>
+				</section>	
 
 				<section>
 					<h3>Power dynamics between you and the provider</h3>
@@ -148,18 +215,154 @@
 					</ul>
 				</section>
 	
-
 				<section>
-					<h3>
-						Software architect can use future costs
-					</h3>
+					<h3>Unbundled pricing</h3>
 					<ul>
-						<li>Now: Story points (time + risk)</li>
-						<li>Future: Operational cost (NPV / cost shape)</li>
+						<li>CPU</li>
+						<li>Memory</li>
+						<li>Disk</li>
+						<li>Network</li>
 					</ul>
 				</section>
 
 				<section>
+					<h3>
+						Context
+					</h3>
+					<ul>
+						<li>Security</li>
+						<li>Language / Runtime</li>
+						<li>Hardware (GPU)</li>
+					</ul>
+				</section>
+
+
+				<!--section>
+					<pre>
+						<code data-trim data-noescape>
+							(s3Event) => {
+								...OCR a document...
+							}
+						</code>
+					</pre>
+				</section-->
+					
+				<section>
+					<h3>
+						Implications
+					</h3>
+					<ul>
+						<li>We're all DevOps</li>
+						<li>Forced awareness of security</li>
+						<li>AWS forces you to learn DevOps (canary / blue green in SAM)</li>
+						<li>Deep product knowledge is less valuable (e.g. Aurora Serverless & connection pooling)</li>
+						<li>Some DevOps outsourced to AWS is the work that requires judgement</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>From Software Engineer to DevOps</h3>
+					<ul>
+						<li>Learn Cloudformation and script everything</li>
+						<li>Take advantage of managed services (Aurora, Elasticsearch)</li>
+						<li>Gives you HA, Backups, Patching, Virus scanning</li>
+						<li>Take advantage of Cloudformation template apps - E.g. WAF Security Automations</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h3>Pain Points - Development</h3>
+					<ul>
+						<li>APM tools</li>
+						<li>Debugging remote execution</li>
+						<li>Learning IAM</li>
+						<li>Learning how datacenters work (networks, firewalls)</li>
+					</ul>
+				</section>
+
+
+
+				<!--section>
+					<h3>Pain Points - Operations</h3>
+					<ul>
+						<li>Accidental coupling</li>
+						<li>Draining connections during a deploy</li>
+						<li>Blue/green deployment?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Example Project: OpenDroneMap</h3>
+					<ul>
+						<li>Obtain your own images</li>
+						<li>Stitch together with a processing pipeline</li>
+						<li>Viewer</li>
+					</ul>
+				</section -->
+				
+				<!--section>
+					<h3>Example project: Cumulus</h3>
+					<ul>
+						<li>
+							Run jobs to copy large sets of files
+						</li>
+						<li>Wrap AWS services</li>
+						<li>Dashboard UI to monitor progress</li>
+					</ul>
+				</section -->
+
+				<!--section>
+					<h3>Example project: Marblecutter</h3>
+					<ul>
+						<li>Processing pipeline - big images to tiles</li>
+					</ul>
+				</section-->
+
+
+				<!--section>
+					<h3>Security</h3>
+					<ul>
+						<li>Increase focus on code issues</li>
+						<li>Tight network controls</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>ECS</h3>
+					<ul>
+						<li>TODO</li>
+					</ul>
+				</section -->
+
+				<!--section>
+					<h3>Spot instances</h3>
+					<ul>
+						<li>Does this make it cheaper to do stuff?</li>
+						<li>Can you get GPUs cheaper this way?</li>
+					</ul>
+				</section -->
+
+				<!--section>
+					<h3>Containerization</h3>
+					<ul>
+						<li>This helped me learn a ton about DevOps</li>
+						<li>One possible way to develop locally stuff that is sent to the cloud</li>
+						<li>Lambda layers - a way to distribute hard to compile stuff like GDAL</li>
+						<li>A way to get GPU code hidden</li>
+						<li>A way to bring forward old science code (fortran)</li>
+					</ul>
+				</section-->
+
+				<!--section>
+					<h3>Lessons Learned</h3>
+					<ul>
+						<li>Use the right tool (product) for the job</li>
+						<li>Choosing vendors > language</li>
+					</ul>
+				</section-->
+
+
+				<!--section>
 					<h3>Case study: satellite imagery data pipeline</h3>
 				</section>
 
@@ -184,7 +387,6 @@
 				<section>
 					<h1>DigitalGlobe</h1>
 					<ul>
-						<!--<li><a href="http://blog.digitalglobe.com/industry/sending-data-from-space-to-amazon-s3-in-less-than-a-minute/">1-60 minutes</a></li>-->
 						<li>80 TB/day</li>
 						<li>100 PB Stored</li>
 						<li>40% cache hit rate</li>
@@ -194,11 +396,6 @@
 				<section>
 					<img src="images/aws-diagram.png " />
 				</section>
-
-				<!-- section>
-					<h1>AWS Groundstation</h1>
-					<img src="images/groundstation.png" />
-				</section -->
 
 				<section>
 					<h1>AWS Groundstation</h1>
@@ -290,16 +487,6 @@
 					<img src="images/forest_fire.png" />
 				</section>
 
-				<!--section>
-					<h1>Why Gatsby</h1>
-					<ul>
-						<li>Easy styling</li>
-						<li>Makes basic page routing a breeze to set up</li>
-						<li>Avoid editing webpack files</li>
-						<li>Production quality javascript builds</li>
-					</ul>
-				</section -->
-
 				<section>
 					<h1>UI + Backend Architecture</h1>
 					<ul>
@@ -308,8 +495,8 @@
 						<li>Microservices</li>
 					</ul>
 				</section>
-
-				<section>
+			-->
+			<!--	<section>
 					<h3>Backend - Javascript lambdas</h3>
 					<ul>
 						<li>Cost control</li>
@@ -342,7 +529,7 @@
 
 				<section>
 					<h3>Build your own map UI</h3>
-				</section>				
+				</section>		-->		
 
 				<!--section>
 					<h3>Libraries</h3>
@@ -371,7 +558,7 @@
 					</pre>
 				</section-->
 
-				<section>
+<!--				<section>
 					<h3>Leaflet.js</h3>
 					<pre>
 						<code data-trim data-noescape>								
@@ -409,7 +596,7 @@
 					  Example of a more managed product that's easy to adopt
 				</section>
 
-
+			-->
 				<!--section>
 					<h1>Geo-referencing</h1>
 					<ul>
@@ -457,38 +644,7 @@
 						</li>
 					</ul>
 				</section-->
-				
-				<section>
-					<h3>Example</h3>
-					<ul>
-						<li>Make a private link to a customer data center</li>
-						<li>Let AWS handle database backups</li>
-						<li>Rely on AWS for patching</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>
-						Implications
-					</h3>
-					<ul>
-						<li>We're all DevOps</li>
-						<li>Forced awareness of security</li>
-						<li>AWS forces you to learn DevOps (canary / blue green in SAM)</li>
-						<li>Deep product knowledge is less valuable (e.g. Aurora Serverless & connection pooling)</li>
-						<li>Some DevOps outsourced to AWS is the work that requires judgement</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>From Software Engineer to DevOps</h3>
-					<ul>
-						<li>Learn Cloudformation and script everything</li>
-						<li>Take advantage of managed services (Aurora, Elasticsearch)</li>
-						<li>Gives you HA, Backups, Patching, Virus scanning</li>
-						<li>Take advantage of Cloudformation template apps - E.g. WAF Security Automations</li>
-					</ul>
-				</section>
+			
 
 				<!--section>
 					<h3>
@@ -540,51 +696,7 @@
 					</ul>
 				</section -->
 
-				<section>
-					<h3>Pain Points - Development</h3>
-					<ul>
-						<li>APM tools</li>
-						<li>Debugging remote execution</li>
-						<li>Learning IAM</li>
-						<li>Learning how datacenters work (networks, firewalls)</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Pain Points - Operations</h3>
-					<ul>
-						<li>Accidental coupling</li>
-						<li>Draining connections during a deploy</li>
-						<li>Blue/green deployment?</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Example Project: OpenDroneMap</h3>
-					<ul>
-						<li>Obtain your own images</li>
-						<li>Stitch together with a processing pipeline</li>
-						<li>Viewer</li>
-					</ul>
-				</section>
-				
-				<section>
-					<h3>Example project: Cumulus</h3>
-					<ul>
-						<li>
-							Run jobs to copy large sets of files
-						</li>
-						<li>Wrap AWS services</li>
-						<li>Dashboard UI to monitor progress</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Example project: Marblecutter</h3>
-					<ul>
-						<li>Processing pipeline - big images to tiles</li>
-					</ul>
-				</section>
-
+			
 				<!--section>
 					<h3>The sky</h3>
 					<ul>
@@ -637,13 +749,7 @@
 					</ul>
 				</section -->
 
-				<section>
-					<h3>Security</h3>
-					<ul>
-						<li>Increase focus on code issues</li>
-						<li>Tight network controls</li>
-					</ul>
-				</section>
+		
 
 				<!--section>
 					<h3>Wordpress</h3>
@@ -656,39 +762,6 @@
 					</ul>
 				</section -->
 
-				<section>
-					<h3>ECS</h3>
-					<ul>
-						<li>TODO</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Spot instances</h3>
-					<ul>
-						<li>Does this make it cheaper to do stuff?</li>
-						<li>Can you get GPUs cheaper this way?</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Containerization</h3>
-					<ul>
-						<li>This helped me learn a ton about DevOps</li>
-						<li>One possible way to develop locally stuff that is sent to the cloud</li>
-						<li>Lambda layers - a way to distribute hard to compile stuff like GDAL</li>
-						<li>A way to get GPU code hidden</li>
-						<li>A way to bring forward old science code (fortran)</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Lessons Learned</h3>
-					<ul>
-						<li>Use the right tool (product) for the job</li>
-						<li>Choosing vendors > language</li>
-					</ul>
-				</section>
 
 				<section>
 					<h3>References</h3>
