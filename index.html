@@ -70,8 +70,8 @@
 					<ul>
 						<li>S3 host front-end</li>
 						<li>Microservices (Lambda + API Gateway)</li>
-						<li>A private link to a customer data center</li>
-						<li>AWS handles database backups</li>
+						<li>A private link to a customer account</li>
+						<li>AWS handles database backups &amp; high availability</li>
 					</ul>
 				</section>
 	
@@ -114,7 +114,7 @@
 				</section>
 					
 				<section>
-					<div style="font-size: 60%;">
+					<div style="font-size: 80%">
 						<pre>
 							<code data-trim data-noescape>
 								WebsiteBucketPolicy:
@@ -145,7 +145,7 @@
 				</section>
 
 				<section>
-						<div style="font-size: 60%;">
+						<div style="font-size: 80%;">
 							<pre>
 								<code data-trim data-noescape>
 									WebsiteBucketPolicy:
@@ -183,7 +183,6 @@
 				<section>
 					<h1>Side-effects</h1>
 					<ul>
-						<li>Resource names</li>
 						<li>Account limits</li>
 						<li>Billing</li>
 						<li>Time spent</li>
@@ -232,7 +231,6 @@
 							  docker run
 								--memory=2g
 								--cpus=1.5
-								TODO - r/o volume?
 								node index.js
 						</code>
 					</pre>
@@ -253,7 +251,7 @@
 				<section>
 					<h3>Idempotency</h3>
 					<ul>
-						<li>AWS SAM / Serverless</li>
+						<li>AWS SAM</li>
 						<li>localstack</li>
 					</ul> 
 				</section>
@@ -282,7 +280,6 @@
 				<section>
 					<h3>Power dynamics with the provider</h3>
 					<ul>
-						<li>Cost of primary resources</li>
 						<li>Many cloud services are "free" - e.g. ECS</li>
 						<li>Reserved instances</li>
 						<li>In vs. out of network</li>
@@ -301,11 +298,11 @@
 					
 				<section>
 					<h3>
-						Implications
+						Lessons Learned
 					</h3>
 					<ul>
 						<li>Some DevOps outsourced to AWS is the work that requires judgement</li>
-						<li>AWS forces you to learn DevOps (canary / blue green in SAM)</li>
+						<li>AWS forces you to learn DevOps</li>
 						<li>Forced awareness of security</li>
 						<li>We're all DevOps</li>
 					</ul>
