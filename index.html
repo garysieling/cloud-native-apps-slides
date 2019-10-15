@@ -27,7 +27,7 @@
 			<div class="slides">
 				<section>
 					<!--h2>Cloud Native Apps</h2--> 
-					<h2>Functional programming in "The Cloud"</h2>
+					<h2>Functional programming in The Cloud</h2>
 				</section>
 
 				<section>
@@ -55,6 +55,7 @@
 				<section>
 					<h3>Bring your own vs. Managed</h3>
 					<ul>
+						<li>SaaS</li>
 						<li>Functions</li>
 						<li>Scaling</li>
 						<li>Runtime</li>
@@ -94,15 +95,23 @@
 				<section>
 					<h3>Functional programming</h3>
 					<blockquote cite="https://en.wikipedia.org/wiki/Functional_programming">
-						A programming paradigm that treats computation as the evaluation of 
+						A paradigm that treats computation as the evaluation of 
 						mathematical functions and avoids changing state and mutable data. 
 						
-						The output value of a function depends only on the arguments passed
+						The output of a function depends only on the arguments passed
 						to a function, so calling a function twice with the same arguments produces
 						the same result each time...
 					</blockquote>
 				</section>
-				
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							(x) => x * x
+						</code>
+					</pre>
+				</section>
+					
 				<section>
 					<div style="font-size: 60%;">
 						<pre>
@@ -132,6 +141,15 @@
 				</section>
 
 				<section>
+						<pre>
+							<code data-trim data-noescape>
+								f(configuration) => resources
+							</code>
+						</pre>
+
+				</section>
+
+				<section>
 						<div style="font-size: 60%;">
 							<pre>
 								<code data-trim data-noescape>
@@ -154,11 +172,10 @@
 												  - "/*"
 											Principal: "*"
 											
-								</code>
-							</pre>
-						</div>
-					</section>
-	
+							</code>
+						</pre>
+					</div>
+				</section>
 
 				<section>
 					<img src="images/cloudformation-output.png" />
@@ -212,44 +229,24 @@
 				<section>
 					<h3>Execution Context</h3>
 					<ul>
+						<li>Logging (Cloudwatch)</li>
 						<li>Container</li>
 						<li>ENI</li>
 						<li>Defined memory/CPU/disk</li>
 						<li>Security groups</li>
+						<li>Hardware (e.g. GPU, EBS Optimization)</li>
 					</ul>
 				</section>
 
 				<section>
-					<pre>
-						<code data-trim data-noescape>
-							docker run
-								--memory=2g
-								--cpus=1.5
-								node
-								index.js
-						</code>
-					</pre>
-				</section>
-				
-				<section>
 					<h3>
-						Software architect can use future costs
+						A Software architect can plan using future costs
 					</h3>
 					<ul>
 						<li>Now: Story points (time + risk)</li>
 						<li>Future: Operational cost (NPV / cost shape)</li>
 					</ul>
 				</section>	
-
-				<section>
-					<h3>Power dynamics between you and the provider</h3>
-					<ul>
-						<li>Cost per time, memory, CPU, device (GPU)</li>
-						<li>In vs. out of network - Transfer pricing</li>
-						<li>Free vs. non-free services (ECS vs EC2)</li>
-						<li>I.e. Free services - Jenkins + Cloudformation?</li>
-					</ul>
-				</section>
 	
 				<section>
 					<h3>Unbundled pricing</h3>
@@ -260,27 +257,17 @@
 						<li>Network</li>
 					</ul>
 				</section>
-
+					
 				<section>
-					<h3>
-						Context
-					</h3>
+					<h3>Power dynamics with the provider</h3>
 					<ul>
-						<li>Security</li>
-						<li>Language / Runtime</li>
-						<li>Hardware (GPU)</li>
+						<li>Cost of primary resources</li>
+						<li>Many cloud services are "free" - e.g. ECS</li>
+						<li>Reserved instances</li>
+						<li>In vs. out of network</li>
 					</ul>
 				</section>
-
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							(x) => x * x
-						</code>
-					</pre>
-				</section>
-
-				
+	
 				<section>
 					<h3>Idempotency</h3>
 					<ul>
@@ -304,11 +291,10 @@
 						Implications
 					</h3>
 					<ul>
-						<li>We're all DevOps</li>
-						<li>Forced awareness of security</li>
-						<li>AWS forces you to learn DevOps (canary / blue green in SAM)</li>
-						<li>Deep product knowledge is less valuable (e.g. Aurora Serverless & connection pooling)</li>
 						<li>Some DevOps outsourced to AWS is the work that requires judgement</li>
+						<li>AWS forces you to learn DevOps (canary / blue green in SAM)</li>
+						<li>Forced awareness of security</li>
+						<li>We're all DevOps</li>
 					</ul>
 				</section>
 
