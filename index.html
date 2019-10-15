@@ -68,6 +68,7 @@
 				<section>
 					<h3>Example Architecture</h3>
 					<ul>
+						<li>S3 host front-end</li>
 						<li>Microservices (Lambda + API Gateway)</li>
 						<li>A private link to a customer data center</li>
 						<li>AWS handles database backups</li>
@@ -140,6 +141,10 @@
 				</section>
 
 				<section>
+					<img src="images/cloudformation-output.png" />
+				</section>
+
+				<section>
 						<div style="font-size: 60%;">
 							<pre>
 								<code data-trim data-noescape>
@@ -174,10 +179,6 @@
 						</code>
 					</pre>
 				</section>
-
-				<section>
-					<img src="images/cloudformation-output.png" />
-				</section>
 	
 				<section>
 					<h1>Side-effects</h1>
@@ -188,9 +189,7 @@
 						<li>Time spent</li>
 					</ul>
 				</section>
-
-<section>TODO: transition</section>
-
+				
 				<section>
 					<img src="images/lambda.png" />
 				</section>
@@ -218,7 +217,7 @@
 					<pre>
 						<code data-trim data-noescape>
 							(event, context, callback) => {
-								console.log(request.query.name + " was here.");
+								console.log("I was here.");
 
 								callback(&lt;h3>Hi!&lt;h3>);
 							}
@@ -233,6 +232,7 @@
 							  docker run
 								--memory=2g
 								--cpus=1.5
+								TODO - r/o volume?
 								node index.js
 						</code>
 					</pre>
@@ -257,6 +257,17 @@
 						<li>localstack</li>
 					</ul> 
 				</section>
+
+				<section>
+					<h3>Unbundled pricing</h3>
+					<ul>
+						<li>CPU</li>
+						<li>Memory</li>
+						<li>Disk</li>
+						<li>Network</li>
+					</ul>
+				</section>
+					
 	
 				<section>
 					<h3>
@@ -268,16 +279,6 @@
 					</ul>
 				</section>	
 	
-				<section>
-					<h3>Unbundled pricing</h3>
-					<ul>
-						<li>CPU</li>
-						<li>Memory</li>
-						<li>Disk</li>
-						<li>Network</li>
-					</ul>
-				</section>
-					
 				<section>
 					<h3>Power dynamics with the provider</h3>
 					<ul>
