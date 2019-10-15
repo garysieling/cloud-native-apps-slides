@@ -27,7 +27,7 @@
 			<div class="slides">
 				<section>
 					<!--h2>Cloud Native Apps</h2--> 
-					<h2>Functional programming & AWS lambda</h2>
+					<h2>Functional programming in "The Cloud"</h2>
 				</section>
 
 				<section>
@@ -35,9 +35,9 @@
 					<p><img src="images/e84b.png" /></p>
 				</section>
 				
-				<section>
+				<!--section>
 					TODO: a story
-				</section>
+				</section -->
 
 				<section>
 					<h3>"Cloud Native"</h3>
@@ -92,10 +92,6 @@
 				</section-->
 
 				<section>
-					<h3>AWS Lambda vs Lambdas</h3>
-				</section>
-
-				<section>
 					<h3>Functional programming</h3>
 					<blockquote cite="https://en.wikipedia.org/wiki/Functional_programming">
 						A programming paradigm that treats computation as the evaluation of 
@@ -105,6 +101,71 @@
 						to a function, so calling a function twice with the same arguments produces
 						the same result each time...
 					</blockquote>
+				</section>
+				
+				<section>
+					<div style="font-size: 60%;">
+						<pre>
+							<code data-trim data-noescape>
+								WebsiteBucketPolicy:
+								  Type: AWS::S3::BucketPolicy
+								  Properties: 
+								  Bucket: <mark>!Ref WebsiteBucket</mark>
+								  PolicyDocument: 
+								    Statement: 
+								      - 
+								        Action: 
+								          - "s3:GetObject"
+								            Effect: "Allow"
+								        Resource: 
+								          Fn::Join: 
+								            - ""
+								              - 
+								              - "arn:aws:s3:::"
+								              - Ref: "WebsiteBucket"
+								              - "/*"
+								        Principal: "*"
+										
+							</code>
+						</pre>
+					</div>
+				</section>
+
+				<section>
+						<div style="font-size: 60%;">
+							<pre>
+								<code data-trim data-noescape>
+									WebsiteBucketPolicy:
+									  Type: <mark>AWS::S3::BucketPolicy</mark>
+									  Properties: 
+									  Bucket: !Ref WebsiteBucket
+									  PolicyDocument: 
+										Statement: 
+										  - 
+											Action: 
+											  - "s3:GetObject"
+												Effect: "Allow"
+											Resource: 
+											  Fn::Join: 
+												- ""
+												  - 
+												  - "arn:aws:s3:::"
+												  - Ref: "WebsiteBucket"
+												  - "/*"
+											Principal: "*"
+											
+								</code>
+							</pre>
+						</div>
+					</section>
+	
+
+				<section>
+					<img src="images/cloudformation-output.png" />
+				</section>
+
+				<section>
+					<img src="images/lambda.png" />
 				</section>
 
 				<section>
@@ -119,6 +180,14 @@
 				<section>
 					<pre>
 						<code data-trim data-noescape>
+							(request) => &lt;h3>Hi {request.query.name}!&lt;/h3>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
 							docker run
 								--memory=2g
 								--cpus=1.5
@@ -127,40 +196,7 @@
 						</code>
 					</pre>
 				</section>
-			
-				<section>
-					TODO: example lambda
-				</section>
-
-				<section>
-					TODO: example Cloudformation?
-					Does React count as functional programming?
-					Does cloudformation count as a function?
-					
-				</section>
-
-				<section>
-					Idempotency - 
-						- must simluate the provider to write tests
-						- TIMINGs are a huge issue with this
-				</section>
-
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							(x) => x * x
-						</code>
-					</pre>
-				</section>
-	
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							(request) => &lt;h3>Hi {request.query.name}!&lt;/h3>
-						</code>
-					</pre>
-				</section>
-
+				
 				<section>
 					<pre>
 						<code data-trim data-noescape>
@@ -194,7 +230,7 @@
 						</code>
 					</pre>
 				</section>
-
+				
 				<section>
 					<h3>
 						Software architect can use future costs
@@ -236,6 +272,22 @@
 					</ul>
 				</section>
 
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							(x) => x * x
+						</code>
+					</pre>
+				</section>
+
+				
+				<section>
+					<h3>Idempotency</h3>
+					<ul>
+						<li>AWS SAM</li>
+						<li>localstack</li>
+					</ul> 
+				</section>
 
 				<!--section>
 					<pre>
@@ -260,7 +312,7 @@
 					</ul>
 				</section>
 
-				<section>
+				<!--section>
 					<h3>From Software Engineer to DevOps</h3>
 					<ul>
 						<li>Learn Cloudformation and script everything</li>
@@ -268,9 +320,9 @@
 						<li>Gives you HA, Backups, Patching, Virus scanning</li>
 						<li>Take advantage of Cloudformation template apps - E.g. WAF Security Automations</li>
 					</ul>
-				</section>
+				</section-->
 				
-				<section>
+				<!--section>
 					<h3>Pain Points - Development</h3>
 					<ul>
 						<li>APM tools</li>
@@ -278,7 +330,7 @@
 						<li>Learning IAM</li>
 						<li>Learning how datacenters work (networks, firewalls)</li>
 					</ul>
-				</section>
+				</section  -->
 
 
 
