@@ -189,6 +189,8 @@
 					</ul>
 				</section>
 
+<section>TODO: transition</section>
+
 				<section>
 					<img src="images/lambda.png" />
 				</section>
@@ -197,7 +199,8 @@
 					<h3>index.js</h3>
 					<pre>
 						<code data-trim data-noescape>
-								const main = (event) => ...
+								(event, context, callback) => 
+									callback("Success")
 						</code>
 					</pre>
 				</section>
@@ -205,19 +208,8 @@
 				<section>
 					<pre>
 						<code data-trim data-noescape>
-							(request) => &lt;h3>Hi {request.query.name}!&lt;/h3>
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							docker run
-								--memory=2g
-								--cpus=1.5
-								node
-								index.js
+							(event, context, callback) => 
+								callback(&lt;h3>Hi!&lt;/h3>)
 						</code>
 					</pre>
 				</section>
@@ -225,11 +217,23 @@
 				<section>
 					<pre>
 						<code data-trim data-noescape>
-							(request) => {
+							(event, context, callback) => {
 								console.log(request.query.name + " was here.");
 
-								return &lt;h3>Hi {x}!&lt;h3>;
+								callback(&lt;h3>Hi!&lt;h3>);
 							}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							timelimit -T 600
+							  docker run
+								--memory=2g
+								--cpus=1.5
+								node index.js
 						</code>
 					</pre>
 				</section>
@@ -254,7 +258,6 @@
 					</ul> 
 				</section>
 	
-
 				<section>
 					<h3>
 						A Software architect can plan using future costs
