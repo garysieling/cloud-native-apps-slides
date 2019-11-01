@@ -27,20 +27,100 @@
 			<div class="slides">
 				<section>
 					<!--h2>Cloud Native Apps</h2--> 
-					<h2>Functional programming in The Cloud</h2>
+					<!--<h2>Functional programming in The Cloud</h2>-->
+					<h2>Building Open-Source Cloud-Native Apps in JavaScript</h2>
 				</section>
 
 				<section>
 					<p><img src="images/e84a.png" /></p>
 					<p><img src="images/e84b.png" /></p>
 				</section>
-				
+
 				<!--section>
 					TODO: a story
 				</section -->
 
+				<!--section>
+					TODO: more memes
+				</section-->
+
+				<section>
+					<img src="images/grand_canyon.jpg" />
+				</section>
+							
 				<section>
 					<h3>Cloud Native</h3>
+				</section>
+
+				<section>
+					<img src="images/what-are-clouds-meme.jpg" />
+				</section>
+
+				<section>
+					<img src="images/aws-user-evolution.png" />
+				</section>
+
+				<section>
+					<h1>Functions live in a box</h1>
+					<pre>
+						<code data-trim data-noescape>
+							(x) => x * x
+						</code>
+					</pre>
+				</section>			
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							timelimit -T 600
+								docker run
+								--memory=2g
+								--cpus=1.5
+								node index.js
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Unbundled pricing</h3>
+					<ul>
+						<li>CPU</li>
+						<li>Memory</li>
+						<li>Disk</li>
+						<li>Network</li>
+					</ul>
+				</section>
+					
+	
+				<section>
+					<h3>
+						A Software architect can plan using future costs
+					</h3>
+					<ul>
+						<li>Now: Story points (time + risk)</li>
+						<li>Future: Operational cost (NPV / cost shape)</li>
+					</ul>
+				</section>	
+	
+				<section>
+					<h3>Power dynamics with the provider</h3>
+					<ul>
+						<li>Many cloud services are "free" - e.g. ECS</li>
+						<li>Reserved instances</li>
+						<li>In vs. out of network</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Execution Context</h3>
+					<ul>
+						<li>Logging (Cloudwatch)</li>
+						<li>Container</li>
+						<li>ENI</li>
+						<li>Defined memory/CPU/disk</li>
+						<li>Security groups</li>
+						<li>Hardware (e.g. GPU, EBS Optimization)</li>
+					</ul>
 				</section>
 
 				<section>
@@ -74,10 +154,218 @@
 						<li>AWS handles database backups &amp; high availability</li>
 					</ul>
 				</section>
+
+				<section>
+					<h3>Case study: satellite imagery data pipeline</h3>
+				</section>
+
+				<section>
+					<img src="images/googlemaps.png" />
+				</section>
+				
+				<section>
+					<img src="images/landsat-illustration.jpg" />
+				</section>
+
+				<section>
+					<h3>Drone Path</h3>
+					<img src="images/drone_path.jpeg" />
+				</section>
 	
 				<section>
-					<img src="images/what-are-clouds-meme.jpg" />
+					<h3>Historic Aerial Footage</h3>
+					<img src="images/historical_footage.gif" >
 				</section>
+
+				<section>
+					<h1>DigitalGlobe</h1>
+					<ul>
+						<li>80 TB/day</li>
+						<li>100 PB Stored</li>
+						<li>40% cache hit rate</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="images/aws-diagram.png " />
+				</section>
+
+				<section>
+					<h1>AWS Groundstation</h1>
+					<img src="images/groundstation-disaster.png" />
+				</section>
+
+				<section>
+					<h3>Processing Pipeline</h3>
+					<ul>
+						<li>JavaScript - Glue code</li>
+						<li>Science code (Docker, Python, ...)</li>
+						<li>Web UIs for monitoring</li>	
+					</ul>
+				</section>
+
+				<!--section>
+					TODO: add something about network infrastructure
+					  E.g. privatelink
+				</section-->
+				
+				<section>
+					<h1>Science Code</h1>
+				</section>
+
+				<section>
+					<h3>Projection</h3>
+					<img src="images/projection2.png" />
+				</section>
+
+				<section>
+					<h3>Ground Control Point</h3>
+					<img src="images/ground_control_point.jpg" />
+				</section>
+
+				<section>
+					<h3>Lenses</h3>
+					<img src="images/lenses.png" />
+				</section>
+				
+				<section>
+					<h3>Product Creation</h3>
+				</section>
+
+				<section>
+					<h3>Vegetation</h3>
+					<!--TODO - understand NVDI -->
+					<img src="images/vegetation.png" />
+				</section>
+
+				<section>
+					<h3>Collections</h3>
+					<img src="images/earthdatasearch.png" />
+				</section>
+
+				<section>
+					<img src="images/landsat-s3.png" />
+				</section>
+
+				<section>
+					<h3>Map Tiles</h3>
+					<img src="images/geotiffjs-tile.png" />
+				</section>
+
+				<section>
+					<h3>Geotiff.js - Tile</h3>
+					<img src="images/geotiffjs-1tif.png" />
+				</section>
+
+				<section>
+					<h3>Web UI Backend - Tiles</h3>
+					<ul>
+						<li>
+							Hosted - Mapbox, OpenStreetMap
+						</li>
+						<li>
+							Folder structure: zoom + location
+						</li>
+						<li>
+							S3 - byte ranging 
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Forest Fire</h3>
+					<img src="images/forest_fire.png" />
+				</section>
+
+				<!--TODO - needs a transition-->
+
+				<section>
+					<div style="font-size: 80%">
+						<pre>
+							<code data-trim data-noescape>
+								WebsiteBucketPolicy:
+									Type: AWS::S3::BucketPolicy
+									Properties: 
+									Bucket: <mark>!Ref WebsiteBucket</mark>
+									PolicyDocument: 
+									Statement: 
+										- 
+										Action: 
+											- "s3:GetObject"
+											Effect: "Allow"
+										Resource: 
+											Fn::Join: 
+											- ""
+												- 
+												- "arn:aws:s3:::"
+												- Ref: "WebsiteBucket"
+												- "/*"
+										Principal: "*"
+							</code>
+						</pre>
+					</div>
+				</section>
+
+				<section>
+					<img src="images/cloudformation-output.png" />
+				</section>
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							f(configuration) => resources
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Gatsby + JAMstack</h3>
+				</section>
+					
+				<!-- TOOD - needs a little more about orchestration - ECS, Lambda -->
+
+				<section>
+					<h3>
+						Lessons Learned
+					</h3>
+					<ul>
+						<li>Some DevOps outsourced to AWS is the work that requires judgement</li>
+						<li>AWS forces you to learn DevOps</li>
+						<li>Forced awareness of security</li>
+						<li>We're all DevOps</li>
+					</ul>
+				</section>
+
+				<!--section>
+					<h3>From Software Engineer to DevOps</h3>
+					<ul>
+						<li>Learn Cloudformation and script everything</li>
+						<li>Take advantage of managed services (Aurora, Elasticsearch)</li>
+						<li>Gives you HA, Backups, Patching, Virus scanning</li>
+						<li>Take advantage of Cloudformation template apps - E.g. WAF Security Automations</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h3>Pain Points - Development</h3>
+					<ul>
+						<li>APM tools</li>
+						<li>Debugging remote execution</li>
+						<li>Learning IAM</li>
+						<li>Learning how datacenters work (networks, firewalls)</li>
+					</ul>
+				</section-->
+	
+
+				<!--section>
+					<h1>UI + Backend Architecture</h1>
+					<ul>
+						<li>Gatsby - Web UIs hosted on S3 + Cloudfront</li>
+						<li>Leaflet.js</li>
+						<li>Microservices</li>
+					</ul>
+				</section-->
+
 
 				<!--section>
 					<h3>Virtualized Datacenter</h3>
@@ -93,7 +381,7 @@
 					<img src="images/aws-user-evolution.png" />
 				</section-->
 
-				<section>
+				<!--section>
 					<h3>Functional programming</h3>
 					<blockquote cite="https://en.wikipedia.org/wiki/Functional_programming">
 						A paradigm that treats computation as the evaluation of 
@@ -103,97 +391,22 @@
 						to a function, so calling a function twice with the same arguments produces
 						the same result each time...
 					</blockquote>
-				</section>
-
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							(x) => x * x
-						</code>
-					</pre>
-				</section>
-					
-				<section>
-					<div style="font-size: 80%">
-						<pre>
-							<code data-trim data-noescape>
-								WebsiteBucketPolicy:
-								  Type: AWS::S3::BucketPolicy
-								  Properties: 
-								  Bucket: <mark>!Ref WebsiteBucket</mark>
-								  PolicyDocument: 
-								    Statement: 
-								      - 
-								        Action: 
-								          - "s3:GetObject"
-								            Effect: "Allow"
-								        Resource: 
-								          Fn::Join: 
-								            - ""
-								              - 
-								              - "arn:aws:s3:::"
-								              - Ref: "WebsiteBucket"
-								              - "/*"
-								        Principal: "*"
-							</code>
-						</pre>
-					</div>
-				</section>
-
-				<section>
-					<img src="images/cloudformation-output.png" />
-				</section>
-
-				<section>
-						<div style="font-size: 80%;">
-							<pre>
-								<code data-trim data-noescape>
-									WebsiteBucketPolicy:
-									  Type: <mark>AWS::S3::BucketPolicy</mark>
-									  Properties: 
-									  Bucket: !Ref WebsiteBucket
-									  PolicyDocument: 
-										Statement: 
-										  - 
-											Action: 
-											  - "s3:GetObject"
-												Effect: "Allow"
-											Resource: 
-											  Fn::Join: 
-												- ""
-												  - 
-												  - "arn:aws:s3:::"
-												  - Ref: "WebsiteBucket"
-												  - "/*"
-											Principal: "*"
-											
-							</code>
-						</pre>
-					</div>
-				</section>
-
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							f(configuration) => resources
-						</code>
-					</pre>
-				</section>
-	
-				<section>
+				</section-->
+			
+				<!--section>
 					<h1>Side-effects</h1>
 					<ul>
 						<li>Account limits</li>
 						<li>Billing</li>
 						<li>Time spent</li>
 					</ul>
-				</section>
+				</section-->
 				
-				<section>
+				<!--section>
 					<img src="images/lambda.png" />
-				</section>
+				</section-->
 
-				<section>
+				<!--section>
 					<h3>index.js</h3>
 					<pre>
 						<code data-trim data-noescape>
@@ -222,70 +435,16 @@
 							}
 						</code>
 					</pre>
-				</section>
+				</section-->
 
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							timelimit -T 600
-							  docker run
-								--memory=2g
-								--cpus=1.5
-								node index.js
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h3>Execution Context</h3>
-					<ul>
-						<li>Logging (Cloudwatch)</li>
-						<li>Container</li>
-						<li>ENI</li>
-						<li>Defined memory/CPU/disk</li>
-						<li>Security groups</li>
-						<li>Hardware (e.g. GPU, EBS Optimization)</li>
-					</ul>
-				</section>
-
-				<section>
+				<!--section>
 					<h3>Idempotency</h3>
 					<ul>
 						<li>AWS SAM</li>
 						<li>localstack</li>
 					</ul> 
-				</section>
+				</section-->
 
-				<section>
-					<h3>Unbundled pricing</h3>
-					<ul>
-						<li>CPU</li>
-						<li>Memory</li>
-						<li>Disk</li>
-						<li>Network</li>
-					</ul>
-				</section>
-					
-	
-				<section>
-					<h3>
-						A Software architect can plan using future costs
-					</h3>
-					<ul>
-						<li>Now: Story points (time + risk)</li>
-						<li>Future: Operational cost (NPV / cost shape)</li>
-					</ul>
-				</section>	
-	
-				<section>
-					<h3>Power dynamics with the provider</h3>
-					<ul>
-						<li>Many cloud services are "free" - e.g. ECS</li>
-						<li>Reserved instances</li>
-						<li>In vs. out of network</li>
-					</ul>
-				</section>
-	
 				<!--section>
 					<pre>
 						<code data-trim data-noescape>
@@ -296,7 +455,7 @@
 					</pre>
 				</section-->
 					
-				<section>
+				<!--section>
 					<h3>
 						Lessons Learned
 					</h3>
@@ -306,7 +465,7 @@
 						<li>Forced awareness of security</li>
 						<li>We're all DevOps</li>
 					</ul>
-				</section>
+				</section -->
 
 				<!--section>
 					<h3>From Software Engineer to DevOps</h3>
@@ -409,141 +568,6 @@
 					</ul>
 				</section-->
 
-
-				<!--section>
-					<h3>Case study: satellite imagery data pipeline</h3>
-				</section>
-
-				<section>
-					<img src="images/googlemaps.png" />
-				</section>
-				
-				<section>
-					<img src="images/landsat-illustration.jpg" />
-				</section>
-
-				<section>
-					<h3>Drone Path</h3>
-					<img src="images/drone_path.jpeg" />
-				</section>
-	
-				<section>
-					<h3>Historic Aerial Footage</h3>
-					<img src="images/historical_footage.gif" >
-				</section>
-
-				<section>
-					<h1>DigitalGlobe</h1>
-					<ul>
-						<li>80 TB/day</li>
-						<li>100 PB Stored</li>
-						<li>40% cache hit rate</li>
-					</ul>
-				</section>
-
-				<section>
-					<img src="images/aws-diagram.png " />
-				</section>
-
-				<section>
-					<h1>AWS Groundstation</h1>
-					<img src="images/groundstation-disaster.png" />
-				</section>
-
-				<section>
-					<h3>Processing Pipeline</h3>
-					<ul>
-						<li>JavaScript - Glue code</li>
-						<li>Science code (Docker, Python, ...)</li>
-						<li>Web UIs for monitoring</li>	
-					</ul>
-				</section>
-
-				<section>
-					TODO: add something about network infrastructure
-					  E.g. privatelink
-				</section>
-				
-				<section>
-					<h1>Science Code</h1>
-				</section>
-
-				<section>
-					<h3>Projection</h3>
-					<img src="images/projection2.png" />
-				</section>
-
-				<section>
-					<h3>Ground Control Point</h3>
-					<img src="images/ground_control_point.jpg" />
-				</section>
-
-				<section>
-					<h3>Lenses</h3>
-					<img src="images/lenses.png" />
-				</section>
-				
-				<section>
-					<h3>Product Creation</h3>
-				</section>
-
-				<section>
-					<h3>Vegetation</h3>
-					<img src="images/vegetation.png" />
-				</section>
-
-				<section>
-					<h3>Collections</h3>
-					<img src="images/earthdatasearch.png" />
-				</section>
-
-				<section>
-					<img src="images/landsat-s3.png" />
-				</section>
-
-				<section>
-					<h3>Map Tiles</h3>
-					<img src="images/geotiffjs-tile.png" />
-				</section>
-
-				<section>
-					<h3>Geotiff.js - Tile</h3>
-					<img src="images/geotiffjs-1tif.png" />
-				</section>
-
-				<section>
-					<h3>Web UI Backend - Tiles</h3>
-					<ul>
-						<li>
-							Hosted - Mapbox, OpenStreetMap
-						</li>
-						<li>
-							Folder structure: zoom + location
-						</li>
-						<li>
-							S3 - byte ranging 
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Gatsby + JAMstack</h3>
-				</section>
-
-				<section>
-					<h3>Forest Fire</h3>
-					<img src="images/forest_fire.png" />
-				</section>
-
-				<section>
-					<h1>UI + Backend Architecture</h1>
-					<ul>
-						<li>Gatsby - Web UIs hosted on S3 + Cloudfront</li>
-						<li>Leaflet.js</li>
-						<li>Microservices</li>
-					</ul>
-				</section>
-			-->
 			<!--	<section>
 					<h3>Backend - Javascript lambdas</h3>
 					<ul>
@@ -815,6 +839,9 @@
 					<h3>References</h3>
 					<ul>
 						<li>https://start.jcolemorrison.com/aws-vpc-core-concepts-analogy-guide/</li>
+						<li>https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA14897</li>
+						<li>Cumulus</li>
+						<li>Pangeo</li>
 					</ul>
 				</section>
 			</div>
