@@ -32,8 +32,21 @@
 				</section>
 
 				<section>
+					<!--h2>Cloud Native Apps</h2--> 
+					<!--<h2>Functional programming in The Cloud</h2>-->
+					<h2>Building Open-Source Cloud-Native Apps in JavaScript</h2>
+					<h3>DevOps is fun</h3>
+				</section>
+				
+				<section>
 					<p><img src="images/e84a.png" /></p>
 					<p><img src="images/e84b.png" /></p>
+				</section>
+
+				<section>
+					<p>Pangeo</p>
+					<p>Cumulus</p>
+					<p>OpenDroneMap</p>
 				</section>
 
 				<!--section>
@@ -61,22 +74,58 @@
 				</section>
 
 				<section>
-					<h1>Functions live in a box</h1>
+					<h1>Function Context</h1>
 					<pre>
 						<code data-trim data-noescape>
 							(x) => x * x
 						</code>
 					</pre>
-				</section>			
+				</section>	
+				
+				<section>
+					<h3>Execution Context</h3>
+					<ul>
+						<li>Logging (Cloudwatch)</li>
+						<li>Container</li>
+						<li>ENI</li>
+						<li>Defined memory/CPU/disk</li>
+						<li>Security groups</li>
+						<li>Hardware (e.g. GPU, EBS Optimization)</li>
+					</ul>
+				</section>
 
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+								docker run
+								    --memory=2g
+								    --cpus=1.5
+								    node index.js
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							docker run
+								--memory=2g
+								--cpus=1.5
+								-v volume-name:/opt:ro
+								node index.js
+						</code>
+					</pre>
+				</section>
+	
 				<section>
 					<pre>
 						<code data-trim data-noescape>
 							timelimit -T 600
 								docker run
-								--memory=2g
-								--cpus=1.5
-								node index.js
+									--memory=2g
+									--cpus=1.5
+									-v volume-name:/opt:ro
+									node index.js
 						</code>
 					</pre>
 				</section>
@@ -90,8 +139,16 @@
 						<li>Network</li>
 					</ul>
 				</section>
+
+				<section>
+					<h3>Power dynamics with the provider</h3>
+					<ul>
+						<li>Many cloud services are "free" - e.g. ECS</li>
+						<li>Reserved instances</li>
+						<li>In vs. out of network</li>
+					</ul>
+				</section>
 					
-	
 				<section>
 					<h3>
 						A Software architect can plan using future costs
@@ -101,27 +158,6 @@
 						<li>Future: Operational cost (NPV / cost shape)</li>
 					</ul>
 				</section>	
-	
-				<section>
-					<h3>Power dynamics with the provider</h3>
-					<ul>
-						<li>Many cloud services are "free" - e.g. ECS</li>
-						<li>Reserved instances</li>
-						<li>In vs. out of network</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Execution Context</h3>
-					<ul>
-						<li>Logging (Cloudwatch)</li>
-						<li>Container</li>
-						<li>ENI</li>
-						<li>Defined memory/CPU/disk</li>
-						<li>Security groups</li>
-						<li>Hardware (e.g. GPU, EBS Optimization)</li>
-					</ul>
-				</section>
 
 				<section>
 					<h3>Development paradigms</h3>
@@ -152,6 +188,17 @@
 						<li>Microservices (Lambda + API Gateway)</li>
 						<li>A private link to a customer account</li>
 						<li>AWS handles database backups &amp; high availability</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>
+						Impact on open source
+					</h3>
+					<ul>
+						<li>Scale workloads</li>
+						<li>Handle spiky workloads</li>
+						<li>Public datasets</li>
 					</ul>
 				</section>
 
@@ -201,9 +248,32 @@
 						<li>JavaScript - Glue code</li>
 						<li>Science code (Docker, Python, ...)</li>
 						<li>Web UIs for monitoring</li>	
+						<li>Private Link to Customer</li>
 					</ul>
 				</section>
 
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
+							
+							const queueURL = "SQS_QUEUE_URL";
+							const params = { QueueUrl: queueURL };
+							
+							sqs.receiveMessage(params, (err, data) => {
+								...CALL YOUR LAMBDA HERE...
+
+								const deleteParams = {
+									QueueUrl: queueURL,
+									ReceiptHandle: data.Messages[0].ReceiptHandle
+								};
+
+								sqs.deleteMessage(deleteParams, ...);
+							}})
+						</code> 
+					</pre>	
+				</section>
+	
 				<!--section>
 					TODO: add something about network infrastructure
 					  E.g. privatelink
@@ -234,13 +304,61 @@
 
 				<section>
 					<h3>Vegetation</h3>
-					<!--TODO - understand NVDI -->
 					<img src="images/vegetation.png" />
+				</section>
+
+				<section>
+					<h3>NVDI</h3>
+					<pre>
+						<code data-trim data-noescape>
+							NVDI = (NIR - Red) / (NIR + Red)				
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Geospatial Data Abstraction Library (GDAL)</h3>
+						<pre>
+							<code data-trim data-noescape>
+							red_band = dataset.GetRasterBand(3)
+							nir_band = dataset.GetRasterBand(4)
+							
+							red_scanline = red_band.ReadRaster( 0, line, \
+							   red_band.XSize, 1, red_band.XSize, 1, gdal.GDT_Float32 )
+							red_tuple = struct.unpack('f' * red_band.XSize, red_scanline)
+				
+							nir_scanline = nir_band.ReadRaster( 0, line, \
+							   nir_band.XSize, 1, nir_band.XSize, 1, gdal.GDT_Float32 )
+							nir_tuple = struct.unpack('f' * nir_band.XSize, nir_scanline)
+
+							for i in range(len(red_tuple)):
+  							    ndvi_lower = (nir_tuple[i] + red_tuple[i])
+							    ndvi_upper = (nir_tuple[i] - red_tuple[i])
+				
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>AWS Lambda Layers</h3>
+					<pre>
+						<code data-trim data-noescape>
+							docker volume create test-volume
+
+							docker run -d \
+							  --mount source=test-volume,target=/opt,readonly \
+							  nginx:latest
+						</code>
+					</pre>
 				</section>
 
 				<section>
 					<h3>Collections</h3>
 					<img src="images/earthdatasearch.png" />
+				</section>
+
+				<section>
+					TODO - transition - start from here and finish the writing strong
 				</section>
 
 				<section>
@@ -255,6 +373,10 @@
 				<section>
 					<h3>Geotiff.js - Tile</h3>
 					<img src="images/geotiffjs-1tif.png" />
+				</section>
+
+				<section>
+					<h3>Gatsby + JAMstack</h3>
 				</section>
 
 				<section>
@@ -277,7 +399,19 @@
 					<img src="images/forest_fire.png" />
 				</section>
 
-				<!--TODO - needs a transition-->
+				<!--
+					TODO - needs a transition
+					What am I trying to say here?
+						DevOps is rewarding work
+				-->
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							f(configuration) => resources
+						</code>
+					</pre>
+				</section>
 
 				<section>
 					<div style="font-size: 80%">
@@ -311,26 +445,21 @@
 				</section>
 
 				<section>
-					<pre>
-						<code data-trim data-noescape>
-							f(configuration) => resources
-						</code>
-					</pre>
-				</section>
-
-				<section>
 					<h3>Gatsby + JAMstack</h3>
 				</section>
 					
-				<!-- TOOD - needs a little more about orchestration - ECS, Lambda -->
+				<!-- TOOD - needs a little more about orchestration - ECS, Lambda 
+				sqs
+				-->
 
 				<section>
 					<h3>
 						Lessons Learned
 					</h3>
 					<ul>
-						<li>Some DevOps outsourced to AWS is the work that requires judgement</li>
+						<li>Javascript is used everywhere</li>
 						<li>AWS forces you to learn DevOps</li>
+						<li>Some DevOps work outsourced to AWS is the work that requires judgement</li>
 						<li>Forced awareness of security</li>
 						<li>We're all DevOps</li>
 					</ul>
@@ -840,6 +969,8 @@
 					<ul>
 						<li>https://start.jcolemorrison.com/aws-vpc-core-concepts-analogy-guide/</li>
 						<li>https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA14897</li>
+						<li>http://learningzone.rspsoc.org.uk/index.php/Learning-Materials/Python-Scripting/9.4-Calculate-NDVI-using-GDAL</li>
+						<li>GDAL</li>
 						<li>Cumulus</li>
 						<li>Pangeo</li>
 					</ul>
