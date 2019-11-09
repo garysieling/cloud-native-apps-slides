@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Cloud-Native JavaScript Apps</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -26,27 +26,12 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<!--h2>Cloud Native Apps</h2--> 
-					<!--<h2>Functional programming in The Cloud</h2>-->
-					<h2>Building Open-Source Cloud-Native Apps in JavaScript</h2>
+					<h2>Cloud-Native JavaScript Apps</h2>
 				</section>
 
-				<section>
-					<!--h2>Cloud Native Apps</h2--> 
-					<!--<h2>Functional programming in The Cloud</h2>-->
-					<h2>Building Open-Source Cloud-Native Apps in JavaScript</h2>
-					<h3>DevOps is fun</h3>
-				</section>
-				
 				<section>
 					<p><img src="images/e84a.png" /></p>
 					<p><img src="images/e84b.png" /></p>
-				</section>
-
-				<section>
-					<p>Pangeo</p>
-					<p>Cumulus</p>
-					<p>OpenDroneMap</p>
 				</section>
 
 				<!--section>
@@ -58,10 +43,6 @@
 				</section-->
 
 				<section>
-					<img src="images/grand_canyon.jpg" />
-				</section>
-							
-				<section>
 					<h3>Cloud Native</h3>
 				</section>
 
@@ -72,92 +53,6 @@
 				<section>
 					<img src="images/aws-user-evolution.png" />
 				</section>
-
-				<section>
-					<h1>Function Context</h1>
-					<pre>
-						<code data-trim data-noescape>
-							(x) => x * x
-						</code>
-					</pre>
-				</section>	
-				
-				<section>
-					<h3>Execution Context</h3>
-					<ul>
-						<li>Logging (Cloudwatch)</li>
-						<li>Container</li>
-						<li>ENI</li>
-						<li>Defined memory/CPU/disk</li>
-						<li>Security groups</li>
-						<li>Hardware (e.g. GPU, EBS Optimization)</li>
-					</ul>
-				</section>
-
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-								docker run
-								    --memory=2g
-								    --cpus=1.5
-								    node index.js
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							docker run
-								--memory=2g
-								--cpus=1.5
-								-v volume-name:/opt:ro
-								node index.js
-						</code>
-					</pre>
-				</section>
-	
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							timelimit -T 600
-								docker run
-									--memory=2g
-									--cpus=1.5
-									-v volume-name:/opt:ro
-									node index.js
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h3>Unbundled pricing</h3>
-					<ul>
-						<li>CPU</li>
-						<li>Memory</li>
-						<li>Disk</li>
-						<li>Network</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Power dynamics with the provider</h3>
-					<ul>
-						<li>Many cloud services are "free" - e.g. ECS</li>
-						<li>Reserved instances</li>
-						<li>In vs. out of network</li>
-					</ul>
-				</section>
-					
-				<section>
-					<h3>
-						A Software architect can plan using future costs
-					</h3>
-					<ul>
-						<li>Now: Story points (time + risk)</li>
-						<li>Future: Operational cost (NPV / cost shape)</li>
-					</ul>
-				</section>	
 
 				<section>
 					<h3>Development paradigms</h3>
@@ -182,26 +77,59 @@
 				</section>
 
 				<section>
-					<h3>Example Architecture</h3>
+					<img src="images/grand_canyon.jpg" />
+				</section>
+							
+				<section>
+					<h1>Function Context</h1>
+					<pre>
+						<code data-trim data-noescape>
+							(x) => x * x
+						</code>
+					</pre>
+				</section>	
+				
+				<section>
+					<h3>Execution Context</h3>
 					<ul>
-						<li>S3 host front-end</li>
-						<li>Microservices (Lambda + API Gateway)</li>
-						<li>A private link to a customer account</li>
-						<li>AWS handles database backups &amp; high availability</li>
+						<li>Logging (Cloudwatch)</li>
+						<li>Container</li>
+						<li>ENI</li>
+						<li>Defined memory/CPU/disk</li>
+						<li>Security groups</li>
+						<li>Hardware (e.g. GPU, EBS Optimization)</li>
+					</ul>
+				</section>
+
+				<!--section>
+					<h3>Unbundled pricing</h3>
+					<ul>
+						<li>CPU</li>
+						<li>Memory</li>
+						<li>Disk</li>
+						<li>Network</li>
 					</ul>
 				</section>
 
 				<section>
+					<h3>Power dynamics with the provider</h3>
+					<ul>
+						<li>Many cloud services are "free" - e.g. ECS</li>
+						<li>Reserved instances</li>
+						<li>In vs. out of network</li>
+					</ul>
+				</section-->
+					
+				<!--section>
 					<h3>
-						Impact on open source
+						A Software architect can plan using future costs
 					</h3>
 					<ul>
-						<li>Scale workloads</li>
-						<li>Handle spiky workloads</li>
-						<li>Public datasets</li>
+						<li>Now: Story points (time + risk)</li>
+						<li>Future: Operational cost (NPV / cost shape)</li>
 					</ul>
-				</section>
-
+				</section-->	
+				
 				<section>
 					<h3>Case study: satellite imagery data pipeline</h3>
 				</section>
@@ -210,6 +138,16 @@
 					<img src="images/googlemaps.png" />
 				</section>
 				
+				<section>
+					<h3>Example Architecture</h3>
+					<ul>
+						<li>S3 hosted front-end</li>
+						<li>Microservices (Lambda + API Gateway)</li>
+						<li>A private link to a customer account</li>
+						<li>AWS handles database backups &amp; high availability</li>
+					</ul>
+				</section>
+
 				<section>
 					<img src="images/landsat-illustration.jpg" />
 				</section>
@@ -222,6 +160,10 @@
 				<section>
 					<h3>Historic Aerial Footage</h3>
 					<img src="images/historical_footage.gif" >
+				</section>
+
+				<section>
+					TODO - example Javascript as orchestration
 				</section>
 
 				<section>
@@ -256,19 +198,18 @@
 					<pre>
 						<code data-trim data-noescape>
 							const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
-							
 							const queueURL = "SQS_QUEUE_URL";
 							const params = { QueueUrl: queueURL };
 							
 							sqs.receiveMessage(params, (err, data) => {
-								...CALL YOUR LAMBDA HERE...
+							  ...CALL YOUR LAMBDA HERE...
 
-								const deleteParams = {
-									QueueUrl: queueURL,
-									ReceiptHandle: data.Messages[0].ReceiptHandle
-								};
+							  const deleteParams = {
+							    QueueUrl: queueURL,
+							    ReceiptHandle: data.Messages[0].ReceiptHandle
+							  };
 
-								sqs.deleteMessage(deleteParams, ...);
+							  sqs.deleteMessage(deleteParams, ...);
 							}})
 						</code> 
 					</pre>	
@@ -311,7 +252,7 @@
 					<h3>NVDI</h3>
 					<pre>
 						<code data-trim data-noescape>
-							NVDI = (NIR - Red) / (NIR + Red)				
+							NVDI = (NIR - Red) / (NIR + Red)
 						</code>
 					</pre>
 				</section>
@@ -355,6 +296,56 @@
 				</section>
 
 				<section>
+					<pre>
+						<code data-trim data-noescape>
+								docker run
+								    --memory=2g
+								    --cpus=1.5
+								    node index.js
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							docker run
+								--memory=2g
+								--cpus=1.5
+								-v volume-name:/opt:ro
+								node index.js
+						</code>
+					</pre>
+				</section>
+	
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							timelimit -T 600
+								docker run
+									--memory=2g
+									--cpus=1.5
+									-v volume-name:/opt:ro
+									node index.js
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>On a cloud native app...</h3>
+					<ul>
+						<li>Platform > Language</li>
+						<li>You are forced to pay attention to security...</li>
+						<li>...everyone learns something about DevOps</li>
+						<li>...while outsourcing judgement to AWS</li>
+					</ul>
+				</section>
+
+				<section>
+					TODO - simulating the cloud locally?
+				</section>
+
+				<!--section>
 					<h3>Empowering Scientific Use</h3>
 				</section>
 
@@ -400,12 +391,6 @@
 					<img src="images/geotiffjs-1tif.png" />
 				</section>
 
-				<!--
-					TODO - needs a transition
-					What am I trying to say here?
-						DevOps is rewarding work
-				-->
-
 				<section>
 					<img src="images/grand_canyon.jpg" />
 				</section>
@@ -424,9 +409,9 @@
 						<li>Build boxes around the code - network, disk, RAM, ACLs, etc</li>
 						<li>...or tunnels</li>
 					</ul>
-				</section>
+				</section -->
 
-				<section>
+				<!--section>
 					<pre>
 						<code data-trim data-noescape>
 							f(configuration) => resources
@@ -459,17 +444,8 @@
 							</code>
 						</pre>
 					</div>
-				</section>
+				</section-->
 	
-				<section>
-					<h3>On a cloud native app...</h3>
-					<ul>
-						<li>Platform > Language</li>
-						<li>You are forced to pay attention to security...</li>
-						<li>...everyone learns something about DevOps</li>
-						<li>...while outsourcing judgement to AWS</li>
-					</ul>
-				</section>
 
 				<!--section>
 					<h3>From Software Engineer to DevOps</h3>
