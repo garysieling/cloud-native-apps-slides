@@ -235,10 +235,36 @@
 				</section>
 
 				<section>
+					<h3>Map Tiles</h3>
+					<img src="images/geotiffjs-tile.png" />
+				</section>
+
+				<section>
+					<h3>Geotiff.js - Tile</h3>
+					<img src="images/geotiffjs-1tif.png" />
+				</section>
+
+				<section>
+						<h3>Web UI Backend - Tiles</h3>
+						<ul>
+							<li>
+								Hosted - Mapbox, OpenStreetMap
+							</li>
+							<li>
+								Folder structure: zoom + location
+							</li>
+							<li>
+								S3 - byte ranging 
+							</li>
+						</ul>
+					</section>
+
+				<section>
 					<h3>DevOps</h3>
+					<!-- TODO - run this to see what the cloudformation it makes is -->
+
 					<pre>
-						<!-- TODO - run this to see what the cloudformation it makes is -->
-						<code>
+							<code data-trim data-noescape>
 								import cdk = require('@aws-cdk/core');
 								import { StaticSite } from './static-site';
 								
@@ -311,6 +337,8 @@
 						<li>Defined memory/CPU/disk</li>
 						<li>Hardware (e.g. GPU, EBS Optimization)</li>
 					</ul>
+
+					<!-- TODO - transition? -->
 				</section>
 
 				<section>
