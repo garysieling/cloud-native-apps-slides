@@ -25,6 +25,77 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+<section>
+	audience profile
+		junior UI dev
+		mid level UI dev
+		senior / architect level dev
+
+	what do i have to offer
+		experience of working on three serverless applications
+			Cumulus
+			secret #1
+			unnamed secret #2
+		devops perspective
+			security throughout
+			a story about security? - a breach (target? )
+
+	story
+		A chronology, using a timeline for events, 
+		offers an easy organization pattern for a narrative speech.
+
+		the princess bride
+			grandfather telling his grandson a story
+			narrative framing - plot device
+			from the perspective of another character
+				someone who is concerned about security talking to a younger developer
+
+		A short quotation, anecdote, appropriate humor or fact about
+		the topic of your narrative work well as an introduction.
+
+		Combine that summary with a wrap-up quote, fact or anecdote 
+		that reminds your audience of your main topic. A restatement 
+		of the moral or lesson works well for a narrative speech with 
+		this message.
+
+		todo - pictures of the forest fire in the artic thing
+		todo - talk about the value of lambdas
+			- faster startup time
+			- can I get a visual of spiky load
+			- make sure javascript is mentioned a lot
+				- leaflet example
+
+		read up on snowflake plot structure
+
+
+		retrospective on a talking
+
+
+		endgame - objective - tactic
+		(primary message / conflict) - (3 objectives) - ()
+
+		(cognizant of data breaches) - (what do you need to know to achieve / understand the endgame) - (specific anecdotes / stats / facts)
+		
+		editing: how does every word / detail related to one of the above items
+			(i need to know this, because of this objective, for this endgame)
+
+		(endgame: devops is good for your career)
+
+		(endgame: we need to build ever more robust systems)
+			(objective: developers need to provide better stability)
+				(tactic: microservices)
+				(tactic: code isolation)
+				(tactic: automated testing)
+			(objective: developers need to provide better security)
+				(tactic: least privilege)
+				(tactic: containerization - limiting blast radius)
+			(objective: developers need to match a customers cost profile to their business)
+				(tactic: lambda)
+				(tactic: autoscaling / ECS)
+				(tactic: unbundled pricing)
+
+</section>
+
 				<section>
 					<h2>Cloud-Native JavaScript Apps</h2>
 				</section>
@@ -90,13 +161,31 @@
 				</section>	
 				
 				<section>
+					<h1>Function Context</h1>
+					<pre>
+						<code data-trim data-noescape>
+							(x) => &lt;h1>{x}&lt;/h1>
+						</code>
+					</pre>
+				</section>	
+
+				<section>
+					<h1>Function Context</h1>
+					<pre>
+						<code data-trim data-noescape>
+							(x) => db.query(`select * from data`)
+						</code>
+					</pre>
+				</section>
+
+				<section>
 					<h3>Execution Context</h3>
 					<ul>
 						<li>Logging (Cloudwatch)</li>
 						<li>Container</li>
+						<li>Security groups</li>
 						<li>ENI</li>
 						<li>Defined memory/CPU/disk</li>
-						<li>Security groups</li>
 						<li>Hardware (e.g. GPU, EBS Optimization)</li>
 					</ul>
 				</section>
@@ -135,19 +224,6 @@
 				</section>
 
 				<section>
-					<img src="images/googlemaps.png" />
-				</section>
-				
-				<section>
-					<h3>App Architecture</h3>
-					<ul>
-						<li>S3 hosted front-end</li>
-						<li>Microservices (Lambda + API Gateway)</li>
-						<li>A private link to a customer account</li>
-					</ul>
-				</section>
-
-				<section>
 					<img src="images/landsat-illustration.jpg" />
 				</section>
 
@@ -159,6 +235,28 @@
 				<section>
 					<h3>Historic Aerial Footage</h3>
 					<img src="images/historical_footage.gif" >
+				</section>
+	
+				<section>
+					<img src="images/googlemaps.png" />
+				</section>
+				
+				<section>
+					TODO - leafleft
+				</section>
+
+				<section>
+					<h3>App Architecture</h3>
+					<ul>
+						<li>S3 hosted front-end</li>
+						<li>Microservices (Lambda + API Gateway)</li>
+						<li>A private link to a customer account</li>
+						<li>RDS database, with automatic backups</li>
+					</ul>
+				</section>
+
+				<section>
+					TODO - cloudformation
 				</section>
 
 				<section>
@@ -193,7 +291,6 @@
 						<li>JavaScript - Glue code</li>
 						<li>Science code (Docker, Python, ...)</li>
 						<li>Web UIs for monitoring</li>	
-						<li>Private Link to Customer</li>
 					</ul>
 				</section>
 
@@ -299,6 +396,7 @@
 					<h3>AWS Lambda Layers</h3>
 					<pre>
 						<code data-trim data-noescape>
+							TODO - rewrite this example
 							docker volume create test-volume
 
 							...install gdal...
@@ -313,6 +411,7 @@
 				<section>
 					<pre>
 						<code data-trim data-noescape>
+							TODO - these examples don't work here - need to fix the story up
 								docker run
 								    --memory=2g
 								    --cpus=1.5
