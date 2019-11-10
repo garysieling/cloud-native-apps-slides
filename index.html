@@ -25,7 +25,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-<section>
+				<!--
 	audience profile
 		junior UI dev
 		mid level UI dev
@@ -89,13 +89,12 @@
 			(objective: developers need to provide better security)
 				(tactic: least privilege)
 				(tactic: containerization - limiting blast radius)
-			(objective: developers need to match a customers cost profile to their business)
+			(objective: developers need to build software to fit a client's financial needs)
 				(tactic: lambda)
 				(tactic: autoscaling / ECS)
 				(tactic: unbundled pricing)
 
-</section>
-
+				-->
 				<section>
 					<h2>Cloud-Native JavaScript Apps</h2>
 				</section>
@@ -104,25 +103,64 @@
 					<p><img src="images/e84a.png" /></p>
 					<p><img src="images/e84b.png" /></p>
 				</section>
+	
+				<section>
+					<img src="images/myspace.png" />
+				</section>
 
-				<!--section>
-					TODO: a story
-				</section -->
+				<section>
+					<img src="images/iphone11.jpeg" />
+				</section>
 
-				<!--section>
-					TODO: more memes
-				</section-->
+				<section>
+					<img src="images/breaches.jpeg">
+				</section>
 
+				<section>
+					<h1>Cost</h1>
+					<blockquote>
+						DevOps specialists and site reliability engineers are among the highest paid, most experienced developers most satisfied with their jobs, and are looking for new jobs at the lowest levels.
+					</blockquote>
+				</section>
+
+				<section>
+					<h1>
+						Robust software
+					</h1>
+					<ul>
+						<li>Stable</li>
+						<li>Secure</li>
+						<li>Affordable</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Case study: satellite imagery data pipeline</h3>
+				</section>
+	
+				<section>
+					<img src="images/landsat-illustration.jpg" />
+				</section>
+	
+				<section>
+					<h1>DigitalGlobe</h1>
+					<ul>
+						<li>80 TB/day</li>
+						<li>100 PB Stored</li>
+						<!--li>40% cache hit rate</li-->
+					</ul>
+				</section>
+				
+				<section>
+					<img src="images/aws-diagram.png " />
+				</section>
+				
+				<section>
+					<img src="images/googlemaps.png" />
+				</section>
+				
 				<section>
 					<h3>Cloud Native</h3>
-				</section>
-
-				<section>
-					<img src="images/what-are-clouds-meme.jpg" />
-				</section>
-
-				<section>
-					<img src="images/aws-user-evolution.png" />
 				</section>
 
 				<section>
@@ -135,6 +173,14 @@
 				</section>
 
 				<section>
+					<img src="images/what-are-clouds-meme.jpg" />
+				</section>
+
+				<section>
+					<img src="images/aws-user-evolution.png" />
+				</section>
+				
+				<section>
 					<h3>Bring your own vs. Managed</h3>
 					<ul>
 						<li>SaaS</li>
@@ -146,11 +192,88 @@
 						<li>Hardware</li>
 					</ul>
 				</section>
+	
+				<section>
+					<h1>Stability</h1>
+				</section>
 
 				<section>
-					<img src="images/grand_canyon.jpg" />
+					<h3>App Architecture</h3>
+					<ul>
+						<li>S3 hosted front-end</li>
+						<li>Microservices (Lambda + API Gateway)</li>
+						<li>A private link to a customer account</li>
+						<li>RDS database, with automatic backups</li>
+					</ul>
 				</section>
-							
+
+				<section>
+					<h3>Gatsby</h3>
+					<ul>
+						<li>Wraps webpack - don't have to focus on build tooling</li>
+						<li>Builds single page apps</li>
+						<li>JAMStack - REST apis or Graphql</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Testing</h3>
+					<ul>
+						<li>BDD</li>
+						<li>Checks for issues with underlying dependencies</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Microservices - Stability</h3>
+					<ul>
+						<li>Multiple copies of the app</li>
+						<li>Servers / containers dedicated to modules</li>
+						<li>ALB + Path based routing</li>
+						<li><i>No code changes required</i></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>DevOps</h3>
+					<pre>
+						<!-- TODO - run this to see what the cloudformation it makes is -->
+						<code>
+								import cdk = require('@aws-cdk/core');
+								import { StaticSite } from './static-site';
+								
+								class MyStaticSiteStack extends cdk.Stack {
+									constructor(parent: cdk.App, name: string, props: cdk.StackProps) {
+										super(parent, name, props);
+								
+										new StaticSite(this, 'StaticSite', {
+											domainName: this.node.tryGetContext('domain'),
+											siteSubDomain: this.node.tryGetContext('subdomain'),
+										});
+								   }
+								}
+								
+								const app = new cdk.App();								
+								new MyStaticSiteStack(app, 'MyStaticSite', { env: { region: 'us-east-1' }});
+								
+								app.synth();
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h1>Security</h1>
+				</section>
+
+				<section>
+					<h1>Security - Tactics</h1>
+					<ul>
+						<li>Limit blast radius</li>
+						<li>Least privilege</li>
+						<li>Outsource the hard parts</li>
+					</ul>
+				</section>
+
 				<section>
 					<h1>Function Context</h1>
 					<pre>
@@ -190,6 +313,131 @@
 					</ul>
 				</section>
 
+				<section>
+					<h3>Affordability</h3>
+				</section>
+
+				<section>
+					<h3>Forest Fire</h3>
+					<img src="images/forest_fire.png" />
+				</section>
+			
+				<section>
+					<h3>Drone Path</h3>
+					<img src="images/drone_path.jpeg" />
+				</section>
+
+				<section>
+					<h3>Processing Pipeline</h3>
+					<ul>
+						<li>JavaScript - Glue code</li>
+						<li>Science code (Docker, Python, ...)</li>
+						<li>Web UIs for monitoring</li>	
+					</ul>
+				</section>
+
+				<section>
+					<h1>Science Code</h1>
+				</section>
+
+				<section>
+					<h3>Projection</h3>
+					<img src="images/projection2.png" />
+				</section>
+
+				<section>
+					<h3>Ground Control Point</h3>
+					<img src="images/ground_control_point.jpg" />
+				</section>
+				
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
+							const queueURL = "SQS_QUEUE_URL";
+							const params = { QueueUrl: queueURL };
+							
+							sqs.receiveMessage(params, (err, data) => {
+								...CALL YOUR LAMBDA HERE...
+
+								const deleteParams = {
+								QueueUrl: queueURL,
+								ReceiptHandle: data.Messages[0].ReceiptHandle
+								};
+
+								sqs.deleteMessage(deleteParams, ...);
+							}})
+						</code> 
+					</pre>	
+				</section>
+
+				<section>
+					<h3>Cloud - Resources</h3>
+					<ul>
+						<li>CPU</li>
+						<li>Memory</li>
+						<li>Disk</li>
+						<li>Network</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>
+						A Software architect can plan using future costs
+					</h3>
+					<ul>
+						<li>Now: Story points (time + risk)</li>
+						<li>Future: Operational cost (NPV / cost shape)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Javascript</h3>
+					<ul>
+						<li>Rate of change</li>
+						<li>Story about upgrading a library?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Collections</h3>
+					<img src="images/earthdatasearch.png" />
+				</section>
+
+				<section>
+					<h3>Metrics for reliability</h3>
+						<li>How long will our software continue to build?</li>
+						<li>How long will our software continue to deploy?</li>
+						<li>How long will our software continue to work?</li>
+					</ul>
+				</section>
+<!--				(endgame: we need to build ever more robust systems)
+
+				Anecdote - another breach? or chaos monkey?
+
+				Combine that summary with a wrap-up quote, fact or anecdote 
+		that reminds your audience of your main topic. A restatement 
+		of the moral or lesson works well for a narrative speech with 
+		this message.-->
+
+
+				
+				<!--section>
+					TODO: more memes
+				</section-->
+
+				<!--
+
+				
+
+				
+
+				<section>
+					<img src="images/grand_canyon.jpg" />
+				</section>
+							
+				
+			-->
 				<!--section>
 					<h3>Unbundled pricing</h3>
 					<ul>
@@ -218,42 +466,24 @@
 						<li>Future: Operational cost (NPV / cost shape)</li>
 					</ul>
 				</section-->	
-				
+				<!--
 				<section>
 					<h3>Case study: satellite imagery data pipeline</h3>
 				</section>
 
-				<section>
-					<img src="images/landsat-illustration.jpg" />
-				</section>
-
-				<section>
-					<h3>Drone Path</h3>
-					<img src="images/drone_path.jpeg" />
-				</section>
 	
 				<section>
 					<h3>Historic Aerial Footage</h3>
 					<img src="images/historical_footage.gif" >
 				</section>
 	
-				<section>
-					<img src="images/googlemaps.png" />
-				</section>
+				
 				
 				<section>
 					TODO - leafleft
 				</section>
 
-				<section>
-					<h3>App Architecture</h3>
-					<ul>
-						<li>S3 hosted front-end</li>
-						<li>Microservices (Lambda + API Gateway)</li>
-						<li>A private link to a customer account</li>
-						<li>RDS database, with automatic backups</li>
-					</ul>
-				</section>
+				
 
 				<section>
 					TODO - cloudformation
@@ -276,23 +506,14 @@
 					TODO - security of source images? regulatory?
 				</section>
 
-				<section>
-					<img src="images/aws-diagram.png " />
-				</section>
+			
 
 				<section>
 					<h1>AWS Groundstation</h1>
 					<img src="images/groundstation-disaster.png" />
 				</section>
 
-				<section>
-					<h3>Processing Pipeline</h3>
-					<ul>
-						<li>JavaScript - Glue code</li>
-						<li>Science code (Docker, Python, ...)</li>
-						<li>Web UIs for monitoring</li>	
-					</ul>
-				</section>
+				
 
 				<section>
 					TODO - make the mixes of languages more apparent
@@ -306,46 +527,14 @@
 					TODO - go through the slides as different people
 				</section>
 
-				<section>
-					<pre>
-						<code data-trim data-noescape>
-							const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
-							const queueURL = "SQS_QUEUE_URL";
-							const params = { QueueUrl: queueURL };
-							
-							sqs.receiveMessage(params, (err, data) => {
-							  ...CALL YOUR LAMBDA HERE...
-
-							  const deleteParams = {
-							    QueueUrl: queueURL,
-							    ReceiptHandle: data.Messages[0].ReceiptHandle
-							  };
-
-							  sqs.deleteMessage(deleteParams, ...);
-							}})
-						</code> 
-					</pre>	
-				</section>
-	
+			
+			-->
 				<!--section>
 					TODO: add something about network infrastructure
 					  E.g. privatelink
 				</section-->
+				<!--
 				
-				<section>
-					<h1>Science Code</h1>
-				</section>
-
-				<section>
-					<h3>Projection</h3>
-					<img src="images/projection2.png" />
-				</section>
-
-				<section>
-					<h3>Ground Control Point</h3>
-					<img src="images/ground_control_point.jpg" />
-				</section>
-
 				<section>
 					<h3>Lenses</h3>
 					<img src="images/lenses.png" />
@@ -458,16 +647,12 @@
 						<li>...while outsourcing judgement to AWS</li>
 					</ul>
 				</section>
-
+			-->
 
 				<!--section>
 					<h3>Empowering Scientific Use</h3>
 				</section>
 
-				<section>
-					<h3>Forest Fire</h3>
-					<img src="images/forest_fire.png" />
-				</section>
 	
 				<section>
 					<h3>Web UI Backend - Tiles</h3>
