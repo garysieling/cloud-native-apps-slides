@@ -210,7 +210,7 @@
 				<section>
 					<h3>Gatsby</h3>
 					<ul>
-						<li>Wraps webpack - don't have to focus on build tooling</li>
+						<li>Wraps webpack</li>
 						<li>Builds single page apps</li>
 						<li>JAMStack - REST apis or Graphql</li>
 					</ul>
@@ -229,8 +229,7 @@
 					<ul>
 						<li>Multiple copies of the app</li>
 						<li>Servers / containers dedicated to modules</li>
-						<li>ALB + Path based routing</li>
-						<li><i>No code changes required</i></li>
+						<li>Switch out APIs without code changes</li>
 					</ul>
 				</section>
 
@@ -263,28 +262,24 @@
 					<h3>DevOps</h3>
 					<!-- TODO - run this to see what the cloudformation it makes is -->
 
-					<pre>
-							<code data-trim data-noescape>
-								import cdk = require('@aws-cdk/core');
-								import { StaticSite } from './static-site';
-								
-								class MyStaticSiteStack extends cdk.Stack {
-									constructor(parent: cdk.App, name: string, props: cdk.StackProps) {
-										super(parent, name, props);
-								
-										new StaticSite(this, 'StaticSite', {
-											domainName: this.node.tryGetContext('domain'),
-											siteSubDomain: this.node.tryGetContext('subdomain'),
-										});
-								   }
+					<pre style="width: 100%"><code data-trim data-noescape style="width: 100%; max-height: 800px">
+								export class MyEcsConstructStack extends core.Stack {
+								  constructor(scope: core.App, id: string, props?: core.StackProps) {
+								    super(scope, id, props);
+								    let vpc = new ec2.Vpc(this, "MyVpc", {});
+								    let cluster = new ecs.Cluster(this, "MyCluster", {vpc});
+									
+								    new ecs_patterns.ApplicationLoadBalancedFargateService(this, {
+								      cluster: cluster,
+								      desiredCount: 6, 
+								      taskImageOptions: { 
+								        image: ecs.ContainerImage.fromRegistry("amazon/sample") 
+								      },
+								      memoryLimitMiB: 2048
+								    });
+								  }
 								}
-								
-								const app = new cdk.App();								
-								new MyStaticSiteStack(app, 'MyStaticSite', { env: { region: 'us-east-1' }});
-								
-								app.synth();
-						</code>
-					</pre>
+					</code></pre>
 				</section>
 
 				<section>
