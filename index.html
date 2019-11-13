@@ -167,6 +167,33 @@
 					<img src="images/googlemaps.png" />
 				</section>
 
+				<section>
+					<h3>Leaflet.js</h3>
+					<pre>
+						<code data-trim data-noescape>								
+							const position = [39.9526, -75.1652 ];
+
+							const Map = () => 
+							  &lt;LeafletMap center={position} zoom={11}>
+							    &lt;TileLayer
+							      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+							      url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
+							    />
+							    &lt;Marker position={position}>
+							      &lt;Popup>
+							        A &lt;b>popup&lt;/b>.
+							      &lt;/Popup>
+							    &lt;/Marker>
+							  &lt;/LeafletMap>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Historic Aerial Footage</h3>
+					<img src="images/historical_footage.gif" >
+				</section>
+
 				<!--TODO - leaflet example here-->
 				
 				<section>
@@ -211,7 +238,7 @@
 					<h3>App Architecture</h3>
 					<ul>
 						<li>S3 hosted front-end</li>
-						<li>Microservices (Lambda + API Gateway)</li>
+						<li>Microservices (API Gateway + Lambda)</li>
 						<li>A private link to a customer account</li>
 						<li>RDS database, with automatic backups</li>
 					</ul>
@@ -327,7 +354,10 @@
 					<h1>Function Context</h1>
 					<pre>
 						<code data-trim data-noescape>
-							(x) => db.query(`select * from data`)
+							(x), y => 
+							  db.query(
+								`update data set x = $1 where y = $2`, 
+								[x, y])
 						</code>
 					</pre>
 				</section>
