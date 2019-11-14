@@ -354,7 +354,7 @@
 					<h1>Function Context</h1>
 					<pre>
 						<code data-trim data-noescape>
-							(x), y => 
+							(x, y) => 
 							  db.query(
 								`update data set x = $1 where y = $2`, 
 								[x, y])
@@ -367,10 +367,9 @@
 					<ul>
 						<li>Logging (Cloudwatch)</li>
 						<li>Container</li>
+						<li>Defined memory/CPU/disk</li>
 						<li>Security groups</li>
 						<li>ENI</li>
-						<li>Defined memory/CPU/disk</li>
-						<li>Hardware (e.g. GPU, EBS Optimization)</li>
 					</ul>
 
 					<!-- TODO - transition? -->
@@ -458,7 +457,6 @@
 					<h3>Javascript</h3>
 					<ul>
 						<li>Rate of change</li>
-						<li>Story about upgrading a library?</li>
 					</ul>
 				</section>
 
