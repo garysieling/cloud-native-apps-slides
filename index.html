@@ -99,7 +99,9 @@
 					<h2>Cloud-Native JavaScript Apps</h2>
 
 					<aside class="notes">
-						
+						Hi, I'm Gary Sieling
+
+						Today I'm going to talk about cloud native applications
 					</aside>
 				</section>
 
@@ -108,7 +110,13 @@
 					<p><img src="images/e84b.png" /></p>
 
 					<aside class="notes">
-						
+						I work for Element 84 which is a software consultancy based in Alexandria, VA.
+
+						We do custom software on AWS. Some of our clients are government agencies, notably 
+						including NASA.
+
+						Internally we have a lot of experience building geospatial applications, which 
+						is the inspiration for this talk.
 					</aside>
 				</section>
 
@@ -510,7 +518,8 @@
 					<img src="images/geotiffjs-tile.png" />
 					
 					<aside class="notes">
-						
+						When you're rendering maps in a web UI, you pull down small sections of a map
+						called tiles from the backend.
 					</aside>
 				</section>
 
@@ -519,7 +528,10 @@
 					<img src="images/geotiffjs-1tif.png" />
 					
 					<aside class="notes">
-						
+						In the previous example, the tile was a small section of the map , which was
+						downloaded using a byte-range request from Javascript to S3.
+
+						The full file behind this tile was 1.5 GB.
 					</aside>
 				</section>
 
@@ -538,7 +550,17 @@
 						</ul>
 					
 						<aside class="notes">
-							
+							If you're building a mapping app, you can use a vendoer that offers tiles, 
+							such as mapbox or OpenStreetMap.
+
+							If your product matures to the point where you want to offer processed data,
+							such as images annotated with machine learning, you can swap out for your
+							own tile service.
+
+							This tile service might just be a file system with images stored in the x, y, and zoom
+							locations, or it might be the S3 byte range request style I mentioned previously.
+
+							But either way, this is cool because the API is really naturally to swap out.
 						</aside>
 					</section>
 
@@ -566,7 +588,13 @@
 					</code></pre>
 					
 					<aside class="notes">
+						Our final pillar of stability is DevOps.
+
+						What's cool here is that AWS has released a  set of libraries called the
+						AWS Cloud Development Kit, which is in TypeScript. This example outputs a
+						Cloudformation template that stands up an ECS cluster to process data.
 						
+						This means you can do frontend, backend, and Devops work all in Javascript.
 					</aside>
 				</section>
 
@@ -574,7 +602,14 @@
 					<h1>Security</h1>
 					
 					<aside class="notes">
-						
+						The second pillar of robustness is security.
+
+						This is a different mindset, because it's something that is an area
+						outside of web development and not often our primary responsibility.
+
+						However, it's important for security to be considered during the 
+						entire software development lifecycle, and if we fail we lose the trust
+						of our users or sponsors.
 					</aside>
 				</section>
 
@@ -587,7 +622,20 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						Here our tactics are to reduce the risk and scope of problems as much as we can.
+
+						Microservices in Lambda mean we don't have servers to get hacked - we rely entirely
+						on AWS for that.
+
+						Anyone who has worked on a cloud native app will be forced to learn something about 
+						permissions, because your services and accounts by default do not have permission to
+						do anything.
+
+						This causes a lot of frustration for developers.
+
+						However, there is a bright side. When a dev pulls a ticket from JIRA, they can add
+						a permission in code in scripts, which gives you a natural audit trail. This microservice
+						has permissions because this feature required it.
 					</aside>
 				</section>
 
@@ -600,7 +648,7 @@
 					</pre>
 					
 					<aside class="notes">
-						
+						Intuitively, lambdas seem really simple - this is one that squares a number.
 					</aside>
 				</section>	
 				
@@ -613,7 +661,8 @@
 					</pre>
 					
 					<aside class="notes">
-						
+						If we're doing web development though, we expect to see something more like this,
+						where we return some JSX code.
 					</aside>
 				</section>	
 
@@ -629,7 +678,8 @@
 					</pre>
 					
 					<aside class="notes">
-						
+						If we were writing backend code, we'd see something more like this, where
+						we update data in a database with SQL.
 					</aside>
 				</section>
 
@@ -642,11 +692,24 @@
 						<li>Security groups</li>
 						<li>ENI</li>
 					</ul>
-
-					<!-- TODO - transition? -->
 					
 					<aside class="notes">
-						
+						All of these examples are pretty simple, but when we use AWS lambda we 
+						see a fundamental difference between a JavaScript lambda and a function
+						that runs in a cloud service.
+
+						The function in a cloud service runs inside of a box.
+
+						A simple console.log in a browser, would write to Cloudwatch in AWS, and costs
+						us some money.
+
+						By and large the walls of that box protect us from security issues.
+
+						Since our code runs in a container, it has limited use of ram, cpu, and disk. 
+
+						So in a restricted enviroment, someone could not mine very much bitcoin if they got their code into our lambdas.
+
+						AWS also attaches security groups and a network card to the lambda, which limits what other APIS it can talk to and do.
 					</aside>
 				</section>
 
@@ -671,7 +734,18 @@
 					<img src="images/forest_fire.png" />
 					
 					<aside class="notes">
+						This is a tool called Headlamp that a team at E84 is building for demo purposes.
+
+						The idea is that in a disaster response situation, first responders need a dashboard of the situation.
+
+						A map is natural fit for this, and this shows an example of a forest fire.
+
+						We overlay the map with some data about the known extent of the fire.
 						
+						A hypothetical call center takes calls from people on the ground, and makes pushpins on the map, 
+						for instance if someone's pet has gone missing.
+
+						In this situation, some of the code has to run on site, because the network connection may be poor.
 					</aside>
 				</section>
 			
@@ -680,7 +754,10 @@
 					<img src="images/drone_path.jpeg" />
 					
 					<aside class="notes">
-						
+						To make matters difficult, organizations that respond to these situations often have 
+						drones that collect imagery that needs to be stitched together and overlaid on the map.
+
+						This image shows the path a drone might take to image a farm field.
 					</aside>
 				</section>
 
@@ -693,7 +770,17 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						Regardless of the use case, all imagery runs through a processing pipeline.
+
+						There are three types of software here.
+
+						Science code does all the interesting math bits, and it's almost always python code
+						that lives in a docker container.
+
+						Javascript is frequently used as glue code to make each step of the process start
+						when the previous one finishes.
+
+						Because these pipeines take some time, there are often dashboards just to monitor them.
 					</aside>
 				</section>
 
@@ -712,7 +799,8 @@
 					<img src="images/projection2.png" />
 					
 					<aside class="notes">
-						
+						Projectiion is a simple mathematical transformation from a round earth to the rectangular
+						coordinate system we need for a web UI.
 					</aside>
 				</section>
 
@@ -721,7 +809,10 @@
 					<img src="images/ground_control_point.jpg" />
 					
 					<aside class="notes">
-						
+						Ground control points are markers on the ground with a known, fixed position.
+
+						The science code can find these to line up our stitched together image with 
+						known locations for measurements or correctly overlaying on top of other imagery.
 					</aside>
 				</section>
 				
