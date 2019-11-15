@@ -120,7 +120,9 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						Cumulus is an open source project by NASA to ingest collections of satellite imagery into the cloud. 
+
+						Pangeo is a community platform for Big Data geoscience, that uses the cloud to scale processing.
 					</aside>
 				</section>
 	
@@ -128,7 +130,11 @@
 					<img src="images/myspace.png" />
 					
 					<aside class="notes">
-						
+						Original site was unstable
+
+						You could customize the theming of the site extensively
+
+						There were phishing schemes to get your username / password 
 					</aside>
 				</section>
 
@@ -136,7 +142,7 @@
 					<img src="images/iphone11.jpeg" />
 					
 					<aside class="notes">
-						
+						Execs say - "Why isn't this product as easy to use as the iPhone"
 					</aside>
 				</section>
 
@@ -144,7 +150,11 @@
 					<img src="images/breaches.jpeg">
 					
 					<aside class="notes">
-						
+						We still have a long way to go with cloud software
+
+						This affects everyone
+
+						There is a lot of backpressure on consulting projects to do better
 					</aside>
 				</section>
 
@@ -155,14 +165,14 @@
 					</blockquote>
 					
 					<aside class="notes">
-						
+						We have to build software that in a way that is financially viable, or we won't have jobs
 					</aside>
 				</section>
 
 				<section>
-					<h1>
+					<h2>
 						Robust Serverless software
-					</h1>
+					</h2>
 					<ul>
 						<li>Stable</li>
 						<li>Secure</li>
@@ -170,7 +180,9 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						Three objectives - these will keep our customers happy, and reduce the amount we get paged.
+
+						Affordability is a novel point for software
 					</aside>
 				</section>
 
@@ -178,7 +190,7 @@
 					<h1>Case study: satellite imagery data pipeline</h1>
 					
 					<aside class="notes">
-						
+						This case study is based on experience with several serverless javascript applications on AWS.
 					</aside>
 				</section>
 	
@@ -186,7 +198,12 @@
 					<img src="images/landsat-illustration.jpg" />
 					
 					<aside class="notes">
-						
+						This is an artists rendition of one of the NASA landsat satellites.
+
+						These are about the size of a bus, and have sensors that retrieve imagery in 
+						different color bands, in both the visible and non-visible spectrum.
+
+						The data from these is used for many scientific purposes.
 					</aside>
 				</section>
 	
@@ -199,7 +216,9 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						I watched a talk by DigitalGlobe from an AWS conference.
+
+						This a lot of data to store and archive.
 					</aside>
 				</section>
 				
@@ -207,7 +226,23 @@
 					<img src="images/aws-diagram.png " />
 					
 					<aside class="notes">
+						The basic data pipeline for imagery is pretty straightforward and parallelizes naturally.
+
+						There is a vehicle up in the sky, with a sensor. 
+
+						Raw Sensor data is converted to a useable form, like tiff files.
+
+						The tiff files are post processed into products, which puts them in a form that is usable to
+						a specific scientific community and at a resolution that is approved by relevant regulatory
+						standards.
 						
+						For instance a false color image that shows particular
+						features of the landscape, like water or vegetation.
+
+						The final images are tiles that have metadata that is indexed in a search engine. 
+						
+						The metadata includes entries like timestamps an image was collected and the satellite,
+						location of of the image, and zoom level.
 					</aside>
 				</section>
 				
@@ -215,7 +250,13 @@
 					<img src="images/googlemaps.png" />
 					
 					<aside class="notes">
-						
+						This is a google maps screenshot of philadelphia.
+
+						As web developers, we see several layers - 
+							- The satellite imagery
+							- Vector data for roads
+							- Pushpins for landmarks
+							- UI controls
 					</aside>
 				</section>
 
@@ -241,7 +282,9 @@
 					</pre>
 					
 					<aside class="notes">
-						
+						Leaflet.js is a nice library to let us do this.
+
+						This is the react version.
 					</aside>
 				</section>
 
@@ -250,17 +293,25 @@
 					<img src="images/historical_footage.gif" >
 					
 					<aside class="notes">
-						
+						Here is a sample use case. A team at open drone map took some historical
+						images collected through aerial photography. This visualization shows those
+						images stitched together and overlaid on a modern map.
 					</aside>
 				</section>
-
-				<!--TODO - leaflet example here-->
 				
 				<section>
 					<h3>Cloud Native</h3>
 					
 					<aside class="notes">
-						
+						AWS is appealing for processing data, because we can scale up infinitely.
+
+						The demand for maps of a particular area varies widely- for instance during a 
+						hurricane, a lot of people are interested in a particular area for relief efforts.
+
+						So, scaling down to 0 on the backend is also appealing.
+
+						We've had some discussions internally about what makes these applications
+						cloud native.
 					</aside>
 				</section>
 
@@ -273,7 +324,18 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						I started out doing desktop development in Delphi.
+
+						The tricky thing there was driver conflicts, or a user machine running out of disk space.
+
+						In mobile development, your apps have to scale to screen sizes appropriately.
+
+						In IOT, you expect an intermittent network connection, and low-power devices.
+
+						All of these constraints have forced developers to invent great innovations in software
+						development.
+
+						The cloud is different.
 					</aside>
 				</section>
 
