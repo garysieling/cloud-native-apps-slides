@@ -99,9 +99,9 @@
 					<h2>Cloud-Native JavaScript Apps</h2>
 
 					<aside class="notes">
-						Hi, I'm Gary Sieling
+						* Hi, I'm Gary Sieling
 
-						Today I'm going to talk about cloud native applications
+						* Today I'm going to talk about cloud native applications
 					</aside>
 				</section>
 
@@ -110,12 +110,12 @@
 					<p><img src="images/e84b.png" /></p>
 
 					<aside class="notes">
-						I work for Element 84 which is a software consultancy based in Alexandria, VA.
+						* I work for Element 84 which is a software consultancy based in Alexandria, VA.
 
-						We do custom software on AWS. Some of our clients are government agencies, notably 
+						* We do custom software on AWS. Some of our clients are government agencies, notably 
 						including NASA.
 
-						Internally we have a lot of experience building geospatial applications, which 
+						* Internally we have a lot of experience building geospatial applications, which 
 						is the inspiration for this talk.
 					</aside>
 				</section>
@@ -128,9 +128,9 @@
 					</ul>
 					
 					<aside class="notes">
-						Cumulus is an open source project by NASA to ingest collections of satellite imagery into the cloud. 
+						* Cumulus is an open source project by NASA to ingest collections of satellite imagery into the cloud. 
 
-						Pangeo is a community platform for Big Data geoscience, that uses the cloud to scale processing.
+						* Pangeo is a community platform for Big Data geoscience, that uses the cloud to scale processing.
 					</aside>
 				</section>
 	
@@ -138,11 +138,11 @@
 					<img src="images/myspace.png" />
 					
 					<aside class="notes">
-						Original site was unstable
+						* Original site was unstable
 
-						You could customize the theming of the site extensively
+						* You could customize the theming of the site extensively
 
-						There were phishing schemes to get your username / password 
+						* There were phishing schemes to get your username / password 
 					</aside>
 				</section>
 
@@ -150,7 +150,7 @@
 					<img src="images/iphone11.jpeg" />
 					
 					<aside class="notes">
-						Execs say - "Why isn't this product as easy to use as the iPhone"
+						* Execs say - "Why isn't this product as easy to use as the iPhone"
 					</aside>
 				</section>
 
@@ -158,11 +158,11 @@
 					<img src="images/breaches.jpeg">
 					
 					<aside class="notes">
-						We still have a long way to go with cloud software
+							* We still have a long way to go with cloud software
 
-						This affects everyone
+							* This affects everyone
 
-						There is a lot of backpressure on consulting projects to do better
+							* There is a lot of backpressure on consulting projects to do better
 					</aside>
 				</section>
 
@@ -173,7 +173,7 @@
 					</blockquote>
 					
 					<aside class="notes">
-						We have to build software that in a way that is financially viable, or we won't have jobs
+							* We have to build software that in a way that is financially viable, or we won't have jobs
 					</aside>
 				</section>
 
@@ -188,9 +188,9 @@
 					</ul>
 					
 					<aside class="notes">
-						Three objectives - these will keep our customers happy, and reduce the amount we get paged.
+							* Three objectives - these will keep our customers happy, and reduce the amount we get paged.
 
-						Affordability is a novel point for software
+							* Affordability is a novel point for software
 					</aside>
 				</section>
 
@@ -198,7 +198,7 @@
 					<h1>Case study: satellite imagery data pipeline</h1>
 					
 					<aside class="notes">
-						This case study is based on experience with several serverless javascript applications on AWS.
+							* This case study is based on experience with several serverless javascript applications on AWS.
 					</aside>
 				</section>
 	
@@ -206,12 +206,12 @@
 					<img src="images/landsat-illustration.jpg" />
 					
 					<aside class="notes">
-						This is an artists rendition of one of the NASA landsat satellites.
+							* This is an artists rendition of one of the NASA landsat satellites.
 
-						These are about the size of a bus, and have sensors that retrieve imagery in 
+							* These are about the size of a bus, and have sensors that retrieve imagery in 
 						different color bands, in both the visible and non-visible spectrum.
 
-						The data from these is used for many scientific purposes.
+						* The data from these is used for many scientific purposes.
 					</aside>
 				</section>
 	
@@ -224,9 +224,9 @@
 					</ul>
 					
 					<aside class="notes">
-						I watched a talk by DigitalGlobe from an AWS conference.
+							* I watched a talk by DigitalGlobe from an AWS conference.
 
-						This a lot of data to store and archive.
+							* This a lot of data to store and archive.
 					</aside>
 				</section>
 				
@@ -234,22 +234,22 @@
 					<img src="images/aws-diagram.png " />
 					
 					<aside class="notes">
-						The basic data pipeline for imagery is pretty straightforward and parallelizes naturally.
+							* The basic data pipeline for imagery is pretty straightforward and parallelizes naturally.
 
-						There is a vehicle up in the sky, with a sensor. 
+							* There is a vehicle up in the sky, with a sensor. 
 
-						Raw Sensor data is converted to a useable form, like tiff files.
+							* Raw Sensor data is converted to a useable form, like tiff files.
 
-						The tiff files are post processed into products, which puts them in a form that is usable to
+							* The tiff files are post processed into products, which puts them in a form that is usable to
 						a specific scientific community and at a resolution that is approved by relevant regulatory
 						standards.
 						
-						For instance a false color image that shows particular
+						* For instance a false color image that shows particular
 						features of the landscape, like water or vegetation.
 
-						The final images are tiles that have metadata that is indexed in a search engine. 
+						* The final images are tiles that have metadata that is indexed in a search engine. 
 						
-						The metadata includes entries like timestamps an image was collected and the satellite,
+						* The metadata includes entries like timestamps an image was collected and the satellite,
 						location of of the image, and zoom level.
 					</aside>
 				</section>
@@ -258,9 +258,9 @@
 					<img src="images/googlemaps.png" />
 					
 					<aside class="notes">
-						This is a google maps screenshot of philadelphia.
+							* This is a google maps screenshot of philadelphia.
 
-						As web developers, we see several layers - 
+						* As web developers, we see several layers - 
 							- The satellite imagery
 							- Vector data for roads
 							- Pushpins for landmarks
@@ -290,9 +290,9 @@
 					</pre>
 					
 					<aside class="notes">
-						Leaflet.js is a nice library to let us do this.
+						* Leaflet.js is a nice library to let us do this.
 
-						This is the react version.
+						* This is the react version.
 					</aside>
 				</section>
 
@@ -301,7 +301,7 @@
 					<img src="images/historical_footage.gif" >
 					
 					<aside class="notes">
-						Here is a sample use case. A team at open drone map took some historical
+						* Here is a sample use case. A team at open drone map took some historical
 						images collected through aerial photography. This visualization shows those
 						images stitched together and overlaid on a modern map.
 					</aside>
@@ -311,14 +311,14 @@
 					<h3>Cloud Native</h3>
 					
 					<aside class="notes">
-						AWS is appealing for processing data, because we can scale up infinitely.
+						* AWS is appealing for processing data, because we can scale up infinitely.
 
-						The demand for maps of a particular area varies widely- for instance during a 
+						* The demand for maps of a particular area varies widely- for instance during a 
 						hurricane, a lot of people are interested in a particular area for relief efforts.
 
-						So, scaling down to 0 on the backend is also appealing.
+						* So, scaling down to 0 on the backend is also appealing.
 
-						We've had some discussions internally about what makes these applications
+						* We've had some discussions internally about what makes these applications
 						cloud native.
 					</aside>
 				</section>
@@ -332,18 +332,18 @@
 					</ul>
 					
 					<aside class="notes">
-						I started out doing desktop development in Delphi.
+						* I started out doing desktop development in Delphi.
 
-						The tricky thing there was driver conflicts, or a user machine running out of disk space.
+						* The tricky thing there was driver conflicts, or a user machine running out of disk space.
 
-						In mobile development, your apps have to scale to screen sizes appropriately.
+						* In mobile development, your apps have to scale to screen sizes appropriately.
 
-						In IOT, you expect an intermittent network connection, and low-power devices.
+						* In IOT, you expect an intermittent network connection, and low-power devices.
 
-						All of these constraints have forced developers to invent great innovations in software
+						* All of these constraints have forced developers to invent great innovations in software
 						development.
 
-						The cloud is different.
+						* The cloud is different.
 					</aside>
 				</section>
 
@@ -351,7 +351,7 @@
 					<img src="images/what-are-clouds-meme.jpg" />
 					
 					<aside class="notes">
-						At a basic level, using a cloud provider is just renting servers from someone else.
+							* At a basic level, using a cloud provider is just renting servers from someone else.
 					</aside>
 				</section>
 
@@ -359,16 +359,16 @@
 					<img src="images/aws-user-evolution.png" />
 					
 					<aside class="notes">
-						But for anyone who has tried using AWS, you quickly realize it is a very complex offering.
+							* But for anyone who has tried using AWS, you quickly realize it is a very complex offering.
 
-						I found this illustration that visualizes the experience well.
+							* I found this illustration that visualizes the experience well.
 
-						You might first use a cloud provider to store files in S3, or to use virtual machines.
+							* You might first use a cloud provider to store files in S3, or to use virtual machines.
 
-						But then, as your usage becomes more sophisticated, you realize that AWS has over 100 products
+							* But then, as your usage becomes more sophisticated, you realize that AWS has over 100 products
 						and 10s of thousands of pages of documentation.
 
-						We need a way to think clearly about which offerings we should use.
+						* We need a way to think clearly about which offerings we should use.
 					</aside>
 				</section>
 				
@@ -385,29 +385,29 @@
 					</ul>
 					
 					<aside class="notes">
-						This is a list of layers you could imagine in a software stack.
+							* This is a list of layers you could imagine in a software stack.
 
-						If you're a full stack developer, this is larger than the layers you
+							* If you're a full stack developer, this is larger than the layers you
 						would typically interact with.
 
-						It includes hardware and virtualization at the low levels, and SaaS products
+						* It includes hardware and virtualization at the low levels, and SaaS products
 						at the high levels.
 
-						At each layer, you can bring your own resources, or use those provided by AWS.
+						* At each layer, you can bring your own resources, or use those provided by AWS.
 
-						For instance, you can let them back up databases for you, or you could implement
+						* For instance, you can let them back up databases for you, or you could implement
 						this yourself. You can't bring your own hardware per se, but if you work for
 						an organization that has a data center, you can fairly easily set up a private
 						network link between them, and build a hybrid cloud.
 
-						As a developer, you can build your own cloud native applications that pick
+						* As a developer, you can build your own cloud native applications that pick
 						and choose architectural components from each layer.
 
-						In a large enterprise, many of these are typically
+						* In a large enterprise, many of these are typically
 						controlled by different teams - for instance DBAs, or a team that manages a 
 						data center.
 						
-						What makes this cool is that if you have enough permissions in an AWS account, 
+						* What makes this cool is that if you have enough permissions in an AWS account, 
 						you aren't constrained by those organizational barriers.
 					</aside>
 				</section>
@@ -416,9 +416,9 @@
 					<h1>Stability</h1>
 					
 					<aside class="notes">
-						So the first objective to achieve robust software is stability. 
+							* So the first objective to achieve robust software is stability. 
 						
-						This one is the most readily visible to all of us, and it's typically 
+							* This one is the most readily visible to all of us, and it's typically 
 						a primary responsiblity of development teams.
 					</aside>
 				</section>
@@ -433,22 +433,22 @@
 					</ul>
 					
 					<aside class="notes">
-						This is an architecture we're seeing frequently for web-based applications.
+							* This is an architecture we're seeing frequently for web-based applications.
 
-						We use a single page app on static hosting on Amazon S3.
+							* We use a single page app on static hosting on Amazon S3.
 
-						We have javascript microservices that sit behind it, and read and write
+						* We have javascript microservices that sit behind it, and read and write
 						data from some database, which is fully managed by AWS.
 
-						If we need to integrate with a client's APIs, we can use private network links.
+						* If we need to integrate with a client's APIs, we can use private network links.
 
-						I come from the background of doing full stack development. 
+						* I come from the background of doing full stack development. 
 						
-						I like that cloud providers let us outsource a lot of heavy lifting 
+						* I like that cloud providers let us outsource a lot of heavy lifting 
 						on the backend, so that we don't have to go through the effort to test
 						a highly available system. 
 						
-						So I as a application developer can do light
+						* So I as a application developer can do light
 						devops work and rely on the provider to bring their judgement to bear 
 						on the problems at hand.
 					</aside>
@@ -463,14 +463,14 @@
 					</ul>
 					
 					<aside class="notes">
-						Gatsby describes itself as a "blazing fast modern site generator for React"
+							* Gatsby describes itself as a "blazing fast modern site generator for React"
 						
-						That you can use to "go beyond static sites: build blogs, ecommerce sites, full-blown apps".
+							* That you can use to "go beyond static sites: build blogs, ecommerce sites, full-blown apps".
 
-						If you've used react-starter-kit you'll have a good feel for what it does - 
+							* If you've used react-starter-kit you'll have a good feel for what it does - 
 						provides pre-built tooling to set up sites with REST backends.
 
-						I like this because I've not had to touch webpack since we adopted it.
+						* I like this because I've not had to touch webpack since we adopted it.
 					</aside>
 				</section>
 
@@ -495,19 +495,19 @@
 					</ul>
 					
 					<aside class="notes">
-						The selling point of microservices for me is that if you have an operational 
+							* The selling point of microservices for me is that if you have an operational 
 						issue, you can limit the downtime of a site to one area.
 
-						We've found that it makes sense to have services built around modules in a system.
+						* We've found that it makes sense to have services built around modules in a system.
 
-						For instance, if you have a module that exports reports, and goes down, you 
+						* For instance, if you have a module that exports reports, and goes down, you 
 						can still let your users log in and browse what you have to offer.
 
-						In practice this also means having multiple copies of the application running 
+						* In practice this also means having multiple copies of the application running 
 						in parallel - for instance AWS Lambda does this in multiple container like 
 						processes on the firecracker VM.
 
-						APIs can be very complex, so I've been skeptical that you could 
+						* APIs can be very complex, so I've been skeptical that you could 
 						swap out one provider for another, but in a geospatial application,
 						there is a really good reason to do this.
 					</aside>
@@ -518,7 +518,7 @@
 					<img src="images/geotiffjs-tile.png" />
 					
 					<aside class="notes">
-						When you're rendering maps in a web UI, you pull down small sections of a map
+							* When you're rendering maps in a web UI, you pull down small sections of a map
 						called tiles from the backend.
 					</aside>
 				</section>
@@ -528,10 +528,10 @@
 					<img src="images/geotiffjs-1tif.png" />
 					
 					<aside class="notes">
-						In the previous example, the tile was a small section of the map , which was
+							* In the previous example, the tile was a small section of the map , which was
 						downloaded using a byte-range request from Javascript to S3.
 
-						The full file behind this tile was 1.5 GB.
+						* The full file behind this tile was 1.5 GB.
 					</aside>
 				</section>
 
@@ -550,17 +550,17 @@
 						</ul>
 					
 						<aside class="notes">
-							If you're building a mapping app, you can use a vendoer that offers tiles, 
+								* If you're building a mapping app, you can use a vendoer that offers tiles, 
 							such as mapbox or OpenStreetMap.
 
-							If your product matures to the point where you want to offer processed data,
+							* If your product matures to the point where you want to offer processed data,
 							such as images annotated with machine learning, you can swap out for your
 							own tile service.
 
-							This tile service might just be a file system with images stored in the x, y, and zoom
+							* This tile service might just be a file system with images stored in the x, y, and zoom
 							locations, or it might be the S3 byte range request style I mentioned previously.
 
-							But either way, this is cool because the API is really naturally to swap out.
+							* But either way, this is cool because the API is really naturally to swap out.
 						</aside>
 					</section>
 
@@ -588,13 +588,13 @@
 					</code></pre>
 					
 					<aside class="notes">
-						Our final pillar of stability is DevOps.
+							* Our final pillar of stability is DevOps.
 
-						What's cool here is that AWS has released a  set of libraries called the
+							* What's cool here is that AWS has released a  set of libraries called the
 						AWS Cloud Development Kit, which is in TypeScript. This example outputs a
 						Cloudformation template that stands up an ECS cluster to process data.
 						
-						This means you can do frontend, backend, and Devops work all in Javascript.
+						* This means you can do frontend, backend, and Devops work all in Javascript.
 					</aside>
 				</section>
 
@@ -602,12 +602,12 @@
 					<h1>Security</h1>
 					
 					<aside class="notes">
-						The second pillar of robustness is security.
+							* The second pillar of robustness is security.
 
-						This is a different mindset, because it's something that is an area
+							* This is a different mindset, because it's something that is an area
 						outside of web development and not often our primary responsibility.
 
-						However, it's important for security to be considered during the 
+						* However, it's important for security to be considered during the 
 						entire software development lifecycle, and if we fail we lose the trust
 						of our users or sponsors.
 					</aside>
@@ -622,18 +622,18 @@
 					</ul>
 					
 					<aside class="notes">
-						Here our tactics are to reduce the risk and scope of problems as much as we can.
+							* Here our tactics are to reduce the risk and scope of problems as much as we can.
 
-						Microservices in Lambda mean we don't have servers to get hacked - we rely entirely
+							* Microservices in Lambda mean we don't have servers to get hacked - we rely entirely
 						on AWS for that.
 
-						Anyone who has worked on a cloud native app will be forced to learn something about 
+						* Anyone who has worked on a cloud native app will be forced to learn something about 
 						permissions, because your services and accounts by default do not have permission to
 						do anything.
 
-						This causes a lot of frustration for developers.
+						* This causes a lot of frustration for developers.
 
-						However, there is a bright side. When a dev pulls a ticket from JIRA, they can add
+						* However, there is a bright side. When a dev pulls a ticket from JIRA, they can add
 						a permission in code in scripts, which gives you a natural audit trail. This microservice
 						has permissions because this feature required it.
 					</aside>
@@ -648,7 +648,7 @@
 					</pre>
 					
 					<aside class="notes">
-						Intuitively, lambdas seem really simple - this is one that squares a number.
+							* Intuitively, lambdas seem really simple - this is one that squares a number.
 					</aside>
 				</section>	
 				
@@ -661,7 +661,7 @@
 					</pre>
 					
 					<aside class="notes">
-						If we're doing web development though, we expect to see something more like this,
+							* If we're doing web development though, we expect to see something more like this,
 						where we return some JSX code.
 					</aside>
 				</section>	
@@ -678,7 +678,7 @@
 					</pre>
 					
 					<aside class="notes">
-						If we were writing backend code, we'd see something more like this, where
+							* If we were writing backend code, we'd see something more like this, where
 						we update data in a database with SQL.
 					</aside>
 				</section>
@@ -694,22 +694,22 @@
 					</ul>
 					
 					<aside class="notes">
-						All of these examples are pretty simple, but when we use AWS lambda we 
+							* All of these examples are pretty simple, but when we use AWS lambda we 
 						see a fundamental difference between a JavaScript lambda and a function
 						that runs in a cloud service.
 
-						The function in a cloud service runs inside of a box.
+						* The function in a cloud service runs inside of a box.
 
-						A simple console.log in a browser, would write to Cloudwatch in AWS, and costs
+						* A simple console.log in a browser, would write to Cloudwatch in AWS, and costs
 						us some money.
 
-						By and large the walls of that box protect us from security issues.
+						* By and large the walls of that box protect us from security issues.
 
-						Since our code runs in a container, it has limited use of ram, cpu, and disk. 
+						* Since our code runs in a container, it has limited use of ram, cpu, and disk. 
 
-						So in a restricted enviroment, someone could not mine very much bitcoin if they got their code into our lambdas.
+						* So in a restricted enviroment, someone could not mine very much bitcoin if they got their code into our lambdas.
 
-						AWS also attaches security groups and a network card to the lambda, which limits what other APIS it can talk to and do.
+						* AWS also attaches security groups and a network card to the lambda, which limits what other APIS it can talk to and do.
 					</aside>
 				</section>
 
@@ -717,14 +717,14 @@
 					<h3>Affordability</h3>
 					
 					<aside class="notes">
-						Software is expensive to build, typically with a large amount of money spent up front,
+							* Software is expensive to build, typically with a large amount of money spent up front,
 						followed by some maintenance cost over perhaps a decade. 
 						
-						Using the cloud changes how we think about the maintenance costs, because we are paying
+						* Using the cloud changes how we think about the maintenance costs, because we are paying
 						a vendor for services mixed with our own operations team, rather than just having the 
 						operations team.
 
-						Before I talk about this third pillar of robustness, I want to provide an example
+						* Before I talk about this third pillar of robustness, I want to provide an example
 						of why this is so important.
 					</aside>
 				</section>
@@ -734,18 +734,18 @@
 					<img src="images/forest_fire.png" />
 					
 					<aside class="notes">
-						This is a tool called Headlamp that a team at E84 is building for demo purposes.
+							* This is a tool called Headlamp that a team at E84 is building for demo purposes.
 
-						The idea is that in a disaster response situation, first responders need a dashboard of the situation.
+							* The idea is that in a disaster response situation, first responders need a dashboard of the situation.
 
-						A map is natural fit for this, and this shows an example of a forest fire.
+							* A map is natural fit for this, and this shows an example of a forest fire.
 
-						We overlay the map with some data about the known extent of the fire.
+							* We overlay the map with some data about the known extent of the fire.
 						
-						A hypothetical call center takes calls from people on the ground, and makes pushpins on the map, 
+							* A hypothetical call center takes calls from people on the ground, and makes pushpins on the map, 
 						for instance if someone's pet has gone missing.
 
-						In this situation, some of the code has to run on site, because the network connection may be poor.
+						* In this situation, some of the code has to run on site, because the network connection may be poor.
 					</aside>
 				</section>
 			
@@ -754,10 +754,10 @@
 					<img src="images/drone_path.jpeg" />
 					
 					<aside class="notes">
-						To make matters difficult, organizations that respond to these situations often have 
+							* To make matters difficult, organizations that respond to these situations often have 
 						drones that collect imagery that needs to be stitched together and overlaid on the map.
 
-						This image shows the path a drone might take to image a farm field.
+						* This image shows the path a drone might take to image a farm field.
 					</aside>
 				</section>
 
@@ -770,17 +770,17 @@
 					</ul>
 					
 					<aside class="notes">
-						Regardless of the use case, all imagery runs through a processing pipeline.
+							* Regardless of the use case, all imagery runs through a processing pipeline.
 
-						There are three types of software here.
+							* There are three types of software here.
 
-						Science code does all the interesting math bits, and it's almost always python code
+							* Science code does all the interesting math bits, and it's almost always python code
 						that lives in a docker container.
 
-						Javascript is frequently used as glue code to make each step of the process start
+						* Javascript is frequently used as glue code to make each step of the process start
 						when the previous one finishes.
 
-						Because these pipeines take some time, there are often dashboards just to monitor them.
+						* Because these pipeines take some time, there are often dashboards just to monitor them.
 					</aside>
 				</section>
 
@@ -788,7 +788,7 @@
 					<h1>Science Code</h1>
 					
 					<aside class="notes">
-						Even though the science code is not javacscript, I've have a couple examples
+							* Even though the science code is not javacscript, I've have a couple examples
 						so that it's clear what it is for.
 						
 					</aside>
@@ -799,7 +799,7 @@
 					<img src="images/projection2.png" />
 					
 					<aside class="notes">
-						Projectiion is a simple mathematical transformation from a round earth to the rectangular
+							* Projectiion is a simple mathematical transformation from a round earth to the rectangular
 						coordinate system we need for a web UI.
 					</aside>
 				</section>
@@ -809,9 +809,9 @@
 					<img src="images/ground_control_point.jpg" />
 					
 					<aside class="notes">
-						Ground control points are markers on the ground with a known, fixed position.
+							* Ground control points are markers on the ground with a known, fixed position.
 
-						The science code can find these to line up our stitched together image with 
+							* The science code can find these to line up our stitched together image with 
 						known locations for measurements or correctly overlaying on top of other imagery.
 					</aside>
 				</section>
@@ -837,13 +837,13 @@
 					</pre>	
 					
 					<aside class="notes">
-						In all our processing pieline,, we need the ability to handle tasks that fail.
+							* In all our processing pieline,, we need the ability to handle tasks that fail.
 
-						We might have machines drop off a network, if we do it on laptops in a disaster,
+							* We might have machines drop off a network, if we do it on laptops in a disaster,
 						or we might want to be able to add new machines to a cluster if we're doing it
 						in AWS.
 
-						Either way, the solution to this is to use a queue to maintain the statues of
+						* Either way, the solution to this is to use a queue to maintain the statues of
 						all the work in our pipeline.
 					</aside>
 				</section>
@@ -858,9 +858,9 @@
 					</ul>
 					
 					<aside class="notes">
-						Our workload will use some combination of these four fundamental resources.
+							* Our workload will use some combination of these four fundamental resources.
 
-						AWS would like use to use more of these, and if we maximize our usage of what we
+							* AWS would like use to use more of these, and if we maximize our usage of what we
 						rent from them, we'll get a better value.
 					</aside>
 				</section>
@@ -875,12 +875,12 @@
 					</ul>
 					
 					<aside class="notes">
-						If you work on an agile team, you most likely go through an estimation process, where
+							* If you work on an agile team, you most likely go through an estimation process, where
 						you note story points for a feature, which are a mixed measure of time, complexity, and risk.
 
-						In the future, we could estimate the estimated cost of a feature to maintain.
+						* In the future, we could estimate the estimated cost of a feature to maintain.
 
-						For instance, if we add the ability to process drone imagery to our mapping software,
+						* For instance, if we add the ability to process drone imagery to our mapping software,
 						we need some virtual machines, and that scales with the amount of customers we have.
 					</aside>
 				</section>
@@ -901,16 +901,16 @@
 					<img src="images/earthdatasearch.png" />
 					
 					<aside class="notes">
-						This is an image of a search engine NASA offers to locate public datasets of 
+							* This is an image of a search engine NASA offers to locate public datasets of 
 						satellite imagery.
 
-						What's notable about this is that their data collection programs have existed 
+						* What's notable about this is that their data collection programs have existed 
 						for decades.
 
-						In the javascript ecosystem, there is a lot of churn right now - new libraries,
+						* In the javascript ecosystem, there is a lot of churn right now - new libraries,
 						new features in browsers and cloud vendors.
 
-						If we're building things that make the world better, we hope they last a long time.
+						* If we're building things that make the world better, we hope they last a long time.
 
 					</aside>
 				</section>
@@ -923,14 +923,14 @@
 					</ul>
 					
 					<aside class="notes">
-						I want to leave you with three questions to provoke thought.
+							* I want to leave you with three questions to provoke thought.
 
-						I don't have answers. My hope is that these might inspire you to think differently
+							* I don't have answers. My hope is that these might inspire you to think differently
 						about how you develop software.
 
-						If you walked away from a product you've built for six months or a year, will it...
+						* If you walked away from a product you've built for six months or a year, will it...
 
-						If we're building things that make the world better, we hope they last a long time.
+						* If we're building things that make the world better, we hope they last a long time.
 					</aside>
 				</section>
 <!--				(endgame: we need to build ever more robust systems)
