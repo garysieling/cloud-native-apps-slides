@@ -343,7 +343,7 @@
 					<img src="images/what-are-clouds-meme.jpg" />
 					
 					<aside class="notes">
-						
+						At a basic level, using a cloud provider is just renting servers from someone else.
 					</aside>
 				</section>
 
@@ -351,7 +351,16 @@
 					<img src="images/aws-user-evolution.png" />
 					
 					<aside class="notes">
-						
+						But for anyone who has tried using AWS, you quickly realize it is a very complex offering.
+
+						I found this illustration that visualizes the experience well.
+
+						You might first use a cloud provider to store files in S3, or to use virtual machines.
+
+						But then, as your usage becomes more sophisticated, you realize that AWS has over 100 products
+						and 10s of thousands of pages of documentation.
+
+						We need a way to think clearly about which offerings we should use.
 					</aside>
 				</section>
 				
@@ -368,7 +377,30 @@
 					</ul>
 					
 					<aside class="notes">
+						This is a list of layers you could imagine in a software stack.
+
+						If you're a full stack developer, this is larger than the layers you
+						would typically interact with.
+
+						It includes hardware and virtualization at the low levels, and SaaS products
+						at the high levels.
+
+						At each layer, you can bring your own resources, or use those provided by AWS.
+
+						For instance, you can let them back up databases for you, or you could implement
+						this yourself. You can't bring your own hardware per se, but if you work for
+						an organization that has a data center, you can fairly easily set up a private
+						network link between them, and build a hybrid cloud.
+
+						As a developer, you can build your own cloud native applications that pick
+						and choose architectural components from each layer.
+
+						In a large enterprise, many of these are typically
+						controlled by different teams - for instance DBAs, or a team that manages a 
+						data center.
 						
+						What makes this cool is that if you have enough permissions in an AWS account, 
+						you aren't constrained by those organizational barriers.
 					</aside>
 				</section>
 	
@@ -376,7 +408,10 @@
 					<h1>Stability</h1>
 					
 					<aside class="notes">
+						So the first objective to achieve robust software is stability. 
 						
+						This one is the most readily visible to all of us, and it's typically 
+						a primary responsiblity of development teams.
 					</aside>
 				</section>
 
@@ -385,12 +420,29 @@
 					<ul>
 						<li>S3 hosted front-end</li>
 						<li>JavaScript Microservices (API Gateway + Lambda)</li>
-						<li>A private link to a customer account</li>
 						<li>RDS database, with automatic backups</li>
+						<li>A private link to a customer account</li>
 					</ul>
 					
 					<aside class="notes">
+						This is an architecture we're seeing frequently for web-based applications.
+
+						We use a single page app on static hosting on Amazon S3.
+
+						We have javascript microservices that sit behind it, and read and write
+						data from some database, which is fully managed by AWS.
+
+						If we need to integrate with a client's APIs, we can use private network links.
+
+						I come from the background of doing full stack development. 
 						
+						I like that cloud providers let us outsource a lot of heavy lifting 
+						on the backend, so that we don't have to go through the effort to test
+						a highly available system. 
+						
+						So I as a application developer can do light
+						devops work and rely on the provider to bring their judgement to bear 
+						on the problems at hand.
 					</aside>
 				</section>
 
