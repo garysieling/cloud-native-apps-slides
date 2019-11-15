@@ -455,11 +455,18 @@
 					</ul>
 					
 					<aside class="notes">
+						Gatsby describes itself as a "blazing fast modern site generator for React"
 						
+						That you can use to "go beyond static sites: build blogs, ecommerce sites, full-blown apps".
+
+						If you've used react-starter-kit you'll have a good feel for what it does - 
+						provides pre-built tooling to set up sites with REST backends.
+
+						I like this because I've not had to touch webpack since we adopted it.
 					</aside>
 				</section>
 
-				<section>
+				<!--section>
 					<h3>Testing</h3>
 					<ul>
 						<li>BDD</li>
@@ -469,7 +476,7 @@
 					<aside class="notes">
 						
 					</aside>
-				</section>
+				</section --> 
 
 				<section>
 					<h3>Microservices - Stability</h3>
@@ -480,7 +487,21 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						The selling point of microservices for me is that if you have an operational 
+						issue, you can limit the downtime of a site to one area.
+
+						We've found that it makes sense to have services built around modules in a system.
+
+						For instance, if you have a module that exports reports, and goes down, you 
+						can still let your users log in and browse what you have to offer.
+
+						In practice this also means having multiple copies of the application running 
+						in parallel - for instance AWS Lambda does this in multiple container like 
+						processes on the firecracker VM.
+
+						APIs can be very complex, so I've been skeptical that you could 
+						swap out one provider for another, but in a geospatial application,
+						there is a really good reason to do this.
 					</aside>
 				</section>
 
