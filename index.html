@@ -837,7 +837,14 @@
 					</pre>	
 					
 					<aside class="notes">
-						
+						In all our processing pieline,, we need the ability to handle tasks that fail.
+
+						We might have machines drop off a network, if we do it on laptops in a disaster,
+						or we might want to be able to add new machines to a cluster if we're doing it
+						in AWS.
+
+						Either way, the solution to this is to use a queue to maintain the statues of
+						all the work in our pipeline.
 					</aside>
 				</section>
 
@@ -851,7 +858,10 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						Our workload will use some combination of these four fundamental resources.
+
+						AWS would like use to use more of these, and if we maximize our usage of what we
+						rent from them, we'll get a better value.
 					</aside>
 				</section>
 
@@ -865,7 +875,13 @@
 					</ul>
 					
 					<aside class="notes">
-						
+						If you work on an agile team, you most likely go through an estimation process, where
+						you note story points for a feature, which are a mixed measure of time, complexity, and risk.
+
+						In the future, we could estimate the estimated cost of a feature to maintain.
+
+						For instance, if we add the ability to process drone imagery to our mapping software,
+						we need some virtual machines, and that scales with the amount of customers we have.
 					</aside>
 				</section>
 
